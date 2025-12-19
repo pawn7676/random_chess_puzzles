@@ -6,7 +6,9 @@
 </head>
 <body>
 <script>
-  const urls = [
+  const step2 = [
+
+    // Part 1
     "https://lichess.org/study/A0Bl4tdk/qXrAMrmB",
     "https://lichess.org/study/A0Bl4tdk/n01quAY4",
     "https://lichess.org/study/A0Bl4tdk/Lc5xuG4K",
@@ -65,6 +67,8 @@
     "https://lichess.org/study/A0Bl4tdk/H3JN8K5p",
     "https://lichess.org/study/A0Bl4tdk/vUrDHBcI",
     "https://lichess.org/study/A0Bl4tdk/Rv1qGPpt",
+
+    // Part 2
     "https://lichess.org/study/RqmTTs4m/iTE1F4Yk",
     "https://lichess.org/study/RqmTTs4m/JPg69KVK",
     "https://lichess.org/study/RqmTTs4m/Q5tejJgH",
@@ -109,6 +113,8 @@
     "https://lichess.org/study/RqmTTs4m/ULJuuFC7",
     "https://lichess.org/study/RqmTTs4m/4TZOaFJK",
     "https://lichess.org/study/RqmTTs4m/HPOWYz7O",
+
+    // Part 3
     "https://lichess.org/study/kK3omoKs/OjAqqB7V",
     "https://lichess.org/study/kK3omoKs/aQFkfdLp",
     "https://lichess.org/study/kK3omoKs/5ezyRMMF",
@@ -155,6 +161,8 @@
     "https://lichess.org/study/kK3omoKs/Yg8kIoD4",
     "https://lichess.org/study/kK3omoKs/0Kh5xb59",
     "https://lichess.org/study/kK3omoKs/huT8PDaO",
+
+    // Part 4
     "https://lichess.org/study/jylTiIJO/1m1eqL7h",
     "https://lichess.org/study/jylTiIJO/MeJqtxQL",
     "https://lichess.org/study/jylTiIJO/rhxSiBsL",
@@ -211,6 +219,8 @@
     "https://lichess.org/study/jylTiIJO/aEOZxMYj",
     "https://lichess.org/study/jylTiIJO/w6xxLs0M",
     "https://lichess.org/study/jylTiIJO/B08uNZu1",
+
+    // Part 5
     "https://lichess.org/study/qrLwuhDp/Zvn30nqI",
     "https://lichess.org/study/qrLwuhDp/xnoGTRRh",
     "https://lichess.org/study/qrLwuhDp/Npw0MGLJ",
@@ -251,6 +261,8 @@
     "https://lichess.org/study/qrLwuhDp/Tc6UIhiA",
     "https://lichess.org/study/qrLwuhDp/EOsHbC1l",
     "https://lichess.org/study/qrLwuhDp/BI5FuEOQ",
+
+    // Part 6
     "https://lichess.org/study/7vuuXv2e/sZdJMY5I",
     "https://lichess.org/study/7vuuXv2e/sGr3k2JG",
     "https://lichess.org/study/7vuuXv2e/zwlVHWK9",
@@ -273,6 +285,8 @@
     "https://lichess.org/study/7vuuXv2e/YlMPMlUt",
     "https://lichess.org/study/7vuuXv2e/xO2RMLiB",
     "https://lichess.org/study/7vuuXv2e/J8z1vtMP",
+
+    // Part 7
     "https://lichess.org/study/dIo13Dia/WWoB3fEc",
     "https://lichess.org/study/dIo13Dia/qZgqIogF",
     "https://lichess.org/study/dIo13Dia/wsdxfSLJ",
@@ -318,6 +332,8 @@
     "https://lichess.org/study/dIo13Dia/5P39Ag1W",
     "https://lichess.org/study/dIo13Dia/XUbmbjQn",
     "https://lichess.org/study/dIo13Dia/GjHmfmVN",
+
+    // Part 8
     "https://lichess.org/study/81K9rnDJ/0el5Y5jI",
     "https://lichess.org/study/81K9rnDJ/jBgZf0Bb",
     "https://lichess.org/study/81K9rnDJ/PzjmK7Qm",
@@ -370,6 +386,8 @@
     "https://lichess.org/study/81K9rnDJ/17xBqAu7",
     "https://lichess.org/study/81K9rnDJ/f6zT63iE",
     "https://lichess.org/study/81K9rnDJ/9DOtu8A8",
+
+    // Part 9
     "https://lichess.org/study/SvXSsdAW/LjJoVSlr",
     "https://lichess.org/study/SvXSsdAW/L0wYISkc",
     "https://lichess.org/study/SvXSsdAW/SF1N8WZ3",
@@ -395,8 +413,17 @@
     "https://lichess.org/study/SvXSsdAW/0VBFp5YP"
   ];
 
-  const randomUrl = urls[Math.floor(Math.random() * urls.length)];
+  // groups of all workbooks
+  const workbooks = [step2];
+
+  // pick a random workbook
+  const randomSet = workbooks[Math.floor(Math.random() * workbooks.length)];
+
+  // pick a puzzle from that workbook
+  const randomUrl = randomSet[Math.floor(Math.random() * randomSet.length)];
+
   window.location.href = randomUrl;
+
 </script>
 </body>
 </html>
