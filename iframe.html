@@ -6818,14 +6818,16 @@
     step4
   ];
 
+
   function loadRandomPuzzle() {
-    // Pick a random workbook
     const randomSet = workbooks[Math.floor(Math.random() * workbooks.length)];
-    // Pick a random URL from that set
     const randomUrl = randomSet[Math.floor(Math.random() * randomSet.length)];
     
-    // Load the RAW URL (not the /embed version)
-    document.getElementById('chess-frame').src = randomUrl;
+    // We change /study/xyz to /study/embed/xyz
+    // This bypasses the 'Refused to Display' error and keeps the Octopus
+    const embedUrl = randomUrl.replace("lichess.org/study/", "lichess.org/study/embed/");
+    
+    document.getElementById('chess-frame').src = embedUrl;
   }
 
   // Load the first one immediately
