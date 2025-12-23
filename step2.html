@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html style="color-scheme: dark; background: #161512;">
+<html style="color-scheme: dark">
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    // Moving the data and logic here makes it trigger faster
+  
     const step2 = [
 
       // Step 2, Part 1
@@ -3021,10 +3021,8 @@
     // Pick a puzzle from that workbook
     const randomUrl = randomSet[Math.floor(Math.random() * randomSet.length)];
 
-    // window.location.replace is slightly faster and better for the "Back" button
-    if (randomUrl) {
-      window.location.replace(randomUrl);
-    }
+    window.location.replace(randomUrl);
+
   </script>
 </head>
 <body>
