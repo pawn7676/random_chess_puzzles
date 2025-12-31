@@ -21,13 +21,24 @@
         step4
       ];
 
-      // pick a random book
-      const randomBook = books[Math.floor(Math.random() * books.length)];
+      // Hardware-level random function for iPad
+      function getSecureRandomInt(max) {
+        const array = new Uint32Array(1);
+        window.crypto.getRandomValues(array);
+        return array[0] % max;
+      }
 
-      // pick a puzzle from that book
-      const randomPuzzle = randomBook[Math.floor(Math.random() * randomBook.length)];
+      // 1. Pick a book using hardware entropy
+      const randomBook = books[getSecureRandomInt(books.length)];
+
+      // 2. Pick a puzzle from that book using hardware entropy
+      const randomPuzzle = randomBook[getSecureRandomInt(randomBook.length)];
       
-      window.location.replace("https://lichess.org/study/" + randomPuzzle);
+      // 3. Create a "Cache Buster" using the current time in milliseconds
+      const cacheBuster = "?t=" + Date.now();
+
+      // 4. Force a fresh redirect
+      window.location.replace("https://lichess.org/study/" + randomPuzzle + cacheBuster);
     }
 
     const step2 = [
