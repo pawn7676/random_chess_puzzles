@@ -4,51 +4,29 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    /* Updated December 30, 2025 to fix the "clumpy" random issue on iPad.
-       1. Switched to hardware-level randomness (window.crypto).
-       2. Added a cache-buster (?t=) to force Safari to refresh every time.
-    */
-
+    
     function startRedirect() {
 
-      // list of all Chess Steps books
-      const books = [
-        step2, 
-        step2extra, 
-        step2plus, 
-        step2mix, 
-        step2thinkingahead, 
-        step3, 
-        step3extra, 
-        step3plus, 
-        step3mix, 
-        step3thinkingahead,
-        step4
-      ];
-
-      // Hardware-level random function for iPad
+      // Hardware-level random entropy function
       function getSecureRandomInt(max) {
         const array = new Uint32Array(1);
         window.crypto.getRandomValues(array);
         return array[0] % max;
       }
 
-      // 1. Pick a book using hardware entropy
-      const randomBook = books[getSecureRandomInt(books.length)];
-
-      // 2. Pick a puzzle from that book using hardware entropy
-      const randomPuzzle = randomBook[getSecureRandomInt(randomBook.length)];
+      // Pick a random puzzle using hardware entropy
+      const randomPuzzle = puzzles[getSecureRandomInt(puzzles.length)];
       
-      // 3. Create a "Cache Buster" using the current time in milliseconds
+      // Create a "Cache Buster" using current time in milliseconds
       const cacheBuster = "?t=" + Date.now();
 
-      // 4. Force a fresh redirect
+      // Force a fresh redirect
       window.location.replace("https://lichess.org/study/" + randomPuzzle + cacheBuster);
     }
 
-    const step2 = [
+    const puzzles = [
 
-      // Step 2, Part 1
+      // Level 201
       "A0Bl4tdk/qXrAMrmB",
       "A0Bl4tdk/n01quAY4",
       "A0Bl4tdk/Lc5xuG4K",
@@ -108,7 +86,7 @@
       "A0Bl4tdk/vUrDHBcI",
       "A0Bl4tdk/Rv1qGPpt",
 
-      // Step 2, Part 2
+      // Level 202
       "RqmTTs4m/iTE1F4Yk",
       "RqmTTs4m/JPg69KVK",
       "RqmTTs4m/Q5tejJgH",
@@ -154,7 +132,7 @@
       "RqmTTs4m/4TZOaFJK",
       "RqmTTs4m/HPOWYz7O",
 
-      // Step 2, Part 3
+      // Level 203
       "kK3omoKs/OjAqqB7V",
       "kK3omoKs/aQFkfdLp",
       "kK3omoKs/5ezyRMMF",
@@ -202,7 +180,7 @@
       "kK3omoKs/0Kh5xb59",
       "kK3omoKs/huT8PDaO",
 
-      // Step 2, Part 4
+      // Level 204
       "jylTiIJO/1m1eqL7h",
       "jylTiIJO/MeJqtxQL",
       "jylTiIJO/rhxSiBsL",
@@ -260,7 +238,7 @@
       "jylTiIJO/w6xxLs0M",
       "jylTiIJO/B08uNZu1",
 
-      // Step 2, Part 5
+      // Level 205
       "qrLwuhDp/Zvn30nqI",
       "qrLwuhDp/xnoGTRRh",
       "qrLwuhDp/Npw0MGLJ",
@@ -320,7 +298,7 @@
       "qrLwuhDp/EOsHbC1l",
       "qrLwuhDp/BI5FuEOQ",
 
-      // Step 2, Part 6
+      // Level 206
       "7vuuXv2e/sZdJMY5I",
       "7vuuXv2e/sGr3k2JG",
       "7vuuXv2e/zwlVHWK9",
@@ -344,7 +322,7 @@
       "7vuuXv2e/xO2RMLiB",
       "7vuuXv2e/J8z1vtMP",
 
-      // Step 2, Part 7
+      // Level 207
       "dIo13Dia/WWoB3fEc",
       "dIo13Dia/qZgqIogF",
       "dIo13Dia/wsdxfSLJ",
@@ -393,7 +371,7 @@
       "dIo13Dia/XUbmbjQn",
       "dIo13Dia/GjHmfmVN",
 
-      // Step 2, Part 8
+      // Level 208
       "81K9rnDJ/0el5Y5jI",
       "81K9rnDJ/jBgZf0Bb",
       "81K9rnDJ/PzjmK7Qm",
@@ -448,7 +426,7 @@
       "81K9rnDJ/f6zT63iE",
       "81K9rnDJ/9DOtu8A8",
 
-      // Step 2, Part 9
+      // Level 209
       "SvXSsdAW/LjJoVSlr",
       "SvXSsdAW/L0wYISkc",
       "SvXSsdAW/SF1N8WZ3",
@@ -471,12 +449,9 @@
       "SvXSsdAW/gBYjJIV4",
       "SvXSsdAW/esJlqOC6",
       "SvXSsdAW/Ki6QWb0S",
-      "SvXSsdAW/0VBFp5YP"
-    ];
+      "SvXSsdAW/0VBFp5YP",
 
-    const step2extra = [
-
-      // Step 2 Extra, Part 1
+      // Level 210
       "3e82a37c/xgDMlZja",
       "3e82a37c/PUSIG0m1",
       "3e82a37c/iNVS1qqx",
@@ -534,7 +509,7 @@
       "3e82a37c/xNiP0mQK",
       "3e82a37c/3X1z1x3p",
 
-      // Step 2 Extra, Part 2
+      // Level 211
       "puCBVCZh/a9xYuZJX",
       "puCBVCZh/wJoba4E0",
       "puCBVCZh/ihIR7Ogt",
@@ -595,7 +570,7 @@
       "puCBVCZh/AlGxtI86",
       "puCBVCZh/MGTEw2TB",
 
-      // Step 2 Extra, Part 3
+      // Level 212
       "i9HdserV/z30JhXhq",
       "i9HdserV/donvHvyx",
       "i9HdserV/Z7dBMmqa",
@@ -655,7 +630,7 @@
       "i9HdserV/LNpR4xrv",
       "i9HdserV/bf4UDJFE",
 
-      // Step 2 Extra, Part 4
+      // Level 213
       "uCRLhiCC/bZJmHEXA",
       "uCRLhiCC/cnaM3K23",
       "uCRLhiCC/6Y1wGIIr",
@@ -715,7 +690,7 @@
       "uCRLhiCC/2Hyb3cqv",
       "uCRLhiCC/XgAiX7Pt",
 
-      // Step 2 Extra, Part 5
+      // Level 214
       "xs1g0BB5/AvsUhfQA",
       "xs1g0BB5/eTVXccrR",
       "xs1g0BB5/xhbq3BDx",
@@ -776,7 +751,7 @@
       "xs1g0BB5/3LP5dTjU",
       "xs1g0BB5/JtbPb1KF",
 
-      // Step 2 Extra, Part 6
+      // Level 215
       "GwB4KOb3/mmfbImAA",
       "GwB4KOb3/csyb9Xh3",
       "GwB4KOb3/hECB27oo",
@@ -836,7 +811,7 @@
       "GwB4KOb3/CAmSa1W2",
       "GwB4KOb3/ZhsNCMeQ",
 
-      // Step 2 Extra, Part 7
+      // Level 216
       "kxpUaEcP/5Z06cjn0",
       "kxpUaEcP/w2DzvIRQ",
       "kxpUaEcP/AJ222Q8o",
@@ -884,7 +859,7 @@
       "kxpUaEcP/uiNpHu4K",
       "kxpUaEcP/Gper1e6q",
 
-      // Step 2 Extra, Part 8
+      // Level 217
       "J59ZjRAg/ldbPhcS2",
       "J59ZjRAg/04FxySx3",
       "J59ZjRAg/uLq7HfSb",
@@ -942,7 +917,7 @@
       "J59ZjRAg/zpX1NpWi",
       "J59ZjRAg/H2Y9eC7Q",
 
-      // Step 2 Extra, Part 9
+      // Level 218
       "pYHRK6E0/3ujxxRea",
       "pYHRK6E0/KDKX2rcu",
       "pYHRK6E0/pP54eIbn",
@@ -1007,7 +982,7 @@
       "pYHRK6E0/0dmVSQEM",
       "pYHRK6E0/HcoxzXL1",
 
-      // Step 2 Extra, Part 10
+      // Level 219
       "72dZEtVx/Y7OkpHcX",
       "72dZEtVx/CsiI6ICG",
       "72dZEtVx/3w96UJox",
@@ -1066,7 +1041,7 @@
       "72dZEtVx/XDrpT2Lo",
       "72dZEtVx/MJmViKU8",
 
-      // Step 2 Extra, Part 11
+      // Level 220
       "f62bervI/c9830zPq",
       "f62bervI/4TMMGHM3",
       "f62bervI/TkvoHFc2",
@@ -1124,12 +1099,9 @@
       "f62bervI/9tQs8pDI",
       "f62bervI/BJjv4Hf8",
       "f62bervI/dXzBiFc3",
-      "f62bervI/sXdNdN41"
-    ];
+      "f62bervI/sXdNdN41",
 
-    const step2plus = [
-
-      // Step 2 Plus, Part 1
+      // Level 221
       "akZsllQU/cXsB2CbA",
       "akZsllQU/zzu9uYYy",
       "akZsllQU/bCZprkk5",
@@ -1190,7 +1162,7 @@
       "akZsllQU/klpQskwU",
       "akZsllQU/NojMn39E",
 
-      // Step 2 Plus, Part 2
+      // Level 222
       "HL1ndGXP/eo44Cwpp",
       "HL1ndGXP/Ye9n6eqw",
       "HL1ndGXP/C6HGWYWf",
@@ -1246,7 +1218,7 @@
       "HL1ndGXP/XFTDxoqz",
       "HL1ndGXP/436RKWzV",
 
-      // Step 2 Plus, Part 3
+      // Level 223
       "f3k3vn4P/lz48Eiyy",
       "f3k3vn4P/us3dVz4y",
       "f3k3vn4P/5VP1xS0k",
@@ -1306,7 +1278,7 @@
       "f3k3vn4P/XO2I0xcZ",
       "f3k3vn4P/eMxlmCqR",
 
-      // Step 2 Plus, Part 4
+      // Level 224
       "bHKEzpjC/uZi7ZmvG",
       "bHKEzpjC/wKLRJYMO",
       "bHKEzpjC/pjT3Fi3Q",
@@ -1358,7 +1330,7 @@
       "bHKEzpjC/xyuIyato",
       "bHKEzpjC/u9acHK0a",
 
-      // Step 2 Plus, Part 5
+      // Level 225
       "E9Z0d9TL/AmHJlGC0",
       "E9Z0d9TL/lVFhHOA5",
       "E9Z0d9TL/FIVQT08H",
@@ -1409,7 +1381,7 @@
       "E9Z0d9TL/ZMHjaHlf",
       "E9Z0d9TL/89clR1gb",
 
-      // Step 2 Plus, Part 6
+      // Level 226
       "hlDKbqWl/3OiZBGh3",
       "hlDKbqWl/kZrXxEgB",
       "hlDKbqWl/TmH9rXVT",
@@ -1456,7 +1428,7 @@
       "hlDKbqWl/t9r6byyY",
       "hlDKbqWl/ryxgvUm9",
 
-      // Step 2 Plus, Part 7
+      // Level 227
       "6q6aIugS/RbjKQ4BX",
       "6q6aIugS/Mk097sVK",
       "6q6aIugS/qOHqypAM",
@@ -1504,12 +1476,9 @@
       "6q6aIugS/f5hATW9y",
       "6q6aIugS/WRP6h3kR",
       "6q6aIugS/aimq6QN2",
-      "6q6aIugS/udMyIFlI"
-    ];
+      "6q6aIugS/udMyIFlI",
 
-    const step2mix = [
-
-      // Step 2 Mix, Part 1
+      // Level 228
       "CT4mGH2O/Y823dmGh",
       "CT4mGH2O/n3LMY7kr",
       "CT4mGH2O/NolXufhf",
@@ -1571,7 +1540,7 @@
       "CT4mGH2O/lTlz8d06",
       "CT4mGH2O/tlmQubT1",
 
-      // Step 2 Mix, Part 2
+      // Level 229
       "WT7L90gt/CgTFSZE2",
       "WT7L90gt/Uh6hTcpI",
       "WT7L90gt/Uvq6m7Al",
@@ -1633,7 +1602,7 @@
       "WT7L90gt/qFw6CTjO",
       "WT7L90gt/gD8WlHTW",
 
-      // Step 2 Mix, Part 3
+      // Level 230
       "h12nubnQ/A7JOaLO0",
       "h12nubnQ/AEF1YD9W",
       "h12nubnQ/7z1ubDAL",
@@ -1695,7 +1664,7 @@
       "h12nubnQ/wlxGNBGk",
       "h12nubnQ/YvSX2JTm",
 
-      // Step 2 Mix, Part 4
+      // Level 231
       "6nnrhwtp/jK4x2dNA",
       "6nnrhwtp/Gbk2Qwm4",
       "6nnrhwtp/TuXU0ADq",
@@ -1757,7 +1726,7 @@
       "6nnrhwtp/5EnbuadZ",
       "6nnrhwtp/xrJfq8qG",
 
-      // Step 2 Mix, Part 5
+      // Level 232
       "r1c6zDw7/llT33BFn",
       "r1c6zDw7/Ii6hCn6E",
       "r1c6zDw7/CFERRCAG",
@@ -1819,7 +1788,7 @@
       "r1c6zDw7/V0U0PdSP",
       "r1c6zDw7/gwUpXS9A",
 
-      // Step 2 Mix, Part 6
+      // Level 233
       "x7prY0Go/p5Jl6r37",
       "x7prY0Go/TH3VP15C",
       "x7prY0Go/0CrqU0Bg",
@@ -1881,7 +1850,7 @@
       "x7prY0Go/Bn7GcNEm",
       "x7prY0Go/4DEe50Lf",
 
-      // Step 2 Mix, Part 7
+      // Level 234
       "LfCKFAUh/0aheiRcZ",
       "LfCKFAUh/bZgkpr33",
       "LfCKFAUh/NxnDvkU5",
@@ -1943,7 +1912,7 @@
       "LfCKFAUh/ublrcGrm",
       "LfCKFAUh/d8j9N264",
 
-      // Step 2 Mix, Part 8
+      // Level 235
       "rECyDYWs/J9dclXAO",
       "rECyDYWs/f2rqA5Yx",
       "rECyDYWs/ypWPYjLi",
@@ -2004,7 +1973,7 @@
       "rECyDYWs/0UQaRD8A",
       "rECyDYWs/4ro7KMvY",
 
-      // Step 2 Mix, Part 9
+      // Level 236
       "FkY4FB7e/xHWB1CCA",
       "FkY4FB7e/MEgmAegD",
       "FkY4FB7e/l460Vjdm",
@@ -2066,7 +2035,7 @@
       "FkY4FB7e/X9HsloWe",
       "FkY4FB7e/NrDnPgy1",
 
-      // Step 2 Mix, Part 10
+      // Level 237
       "HHnKVIar/fP0HjwQs",
       "HHnKVIar/qAqzq1g8",
       "HHnKVIar/XLlLaBpH",
@@ -2128,7 +2097,7 @@
       "HHnKVIar/beUH4IJI",
       "HHnKVIar/tAwk4fSQ",
 
-      // Step 2 Mix, Part 11
+      // Level 238
       "wQ1tq597/wbYoQnQv",
       "wQ1tq597/CvkZejKQ",
       "wQ1tq597/pKV8h3bG",
@@ -2184,12 +2153,9 @@
       "wQ1tq597/cChGNCMW",
       "wQ1tq597/0J6WdhAr",
       "wQ1tq597/Y2ymoZft",
-      "wQ1tq597/JEgcEfDj"
-    ];
+      "wQ1tq597/JEgcEfDj",
 
-    const step2thinkingahead = [
-
-      // Step 2 Thinking Ahead, Part 1
+      // Level 239
       "1qCtjuYq/QZvBOsK4",
       "1qCtjuYq/dAxKXuEL",
       "1qCtjuYq/10Rn7CdH",
@@ -2218,7 +2184,7 @@
       "1qCtjuYq/08lqkozb",
       "1qCtjuYq/kh3cmGNH",
 
-      // Step 2 Thinking Ahead, Part 2
+      // Level 240
       "kxOuzpcR/wqyxZaIX",
       "kxOuzpcR/bKU3IT3h",
       "kxOuzpcR/KwqmAIWA",
@@ -2282,7 +2248,7 @@
       "kxOuzpcR/exEbgYZI",
       "kxOuzpcR/CHst0Rlp",
 
-      // Step 2 Thinking Ahead, Part 3
+      // Level 241
       "tZ0pPdsb/sQT37IN5",
       "tZ0pPdsb/QID1OeEc",
       "tZ0pPdsb/HYjiQie5",
@@ -2332,7 +2298,7 @@
       "tZ0pPdsb/MFuICRES",
       "tZ0pPdsb/0S3YWiBt",
 
-      // Step 2 Thinking Ahead, Part 4
+      // Level 242
       "fZzjcAtL/cqV4K0De",
       "fZzjcAtL/KF8MWK2V",
       "fZzjcAtL/VcJFSREG",
@@ -2347,7 +2313,7 @@
       "fZzjcAtL/DxALB8Wy",
       "fZzjcAtL/ALPnsyyH",
       
-      // Step 2 Thinking Ahead, Part 5
+      // Level 243
       "4I6Mo2yN/QdpYlRls",
       "4I6Mo2yN/KAAwXfCP",
       "4I6Mo2yN/IhxtJshB",
@@ -2381,7 +2347,7 @@
       "4I6Mo2yN/c195OuLu",
       "4I6Mo2yN/a8YafDiI",
 
-      // Step 2 Thinking Ahead, Part 6
+      // Level 244
       "oG5ujWpK/My0Vanwv",
       "oG5ujWpK/eGf38ERH",
       "oG5ujWpK/LJ5s5EGc",
@@ -2396,7 +2362,7 @@
       "oG5ujWpK/G1zVMUu6",
       "oG5ujWpK/ADGcaDT7",
 
-      // Step 2 Thinking Ahead, Part 7
+      // Level 245
       "858Ngr9s/nlRhdcU2",
       "858Ngr9s/92rjkCOF",
       "858Ngr9s/z2PE7H4y",
@@ -2452,7 +2418,7 @@
       "858Ngr9s/HKb1ARUh",
       "858Ngr9s/aBOzJMvz",
 
-      // Step 2 Thinking Ahead, Part 8
+      // Level 246
       "QF5c9STQ/4uZDWGtN",
       "QF5c9STQ/j2lbKhO7",
       "QF5c9STQ/yMZZIG8P",
@@ -2480,7 +2446,7 @@
       "QF5c9STQ/GNvgiifD",
       "QF5c9STQ/kBQKBXjG",
 
-      // Step 2 Thinking Ahead, Part 9
+      // Level 247
       "6nTrua2v/U1itkVfU",
       "6nTrua2v/mNT4FJuj",
       "6nTrua2v/N0ztp2MX",
@@ -2526,7 +2492,7 @@
       "6nTrua2v/q82UkuIs",
       "6nTrua2v/x8ts9P8V",
 
-      // Step 2 Thinking Ahead, Part 10
+      // Level 248
       "PE1FkZZk/YkHSRoUv",
       "PE1FkZZk/MTkpvnET",
       "PE1FkZZk/kiICA1iF",
@@ -2541,7 +2507,7 @@
       "PE1FkZZk/94Lseovl",
       "PE1FkZZk/rLwN1RpJ",
 
-      // Step 2 Thinking Ahead, Part 11
+      // Level 249
       "wJNMYRpD/U0xYsFy1",
       "wJNMYRpD/494RYls8",
       "wJNMYRpD/B8z1iE6W",
@@ -2593,7 +2559,7 @@
       "wJNMYRpD/XCGyBJs9",
       "wJNMYRpD/S6SBBR8f",
 
-      // Step 2 Thinking Ahead, Part 12
+      // Level 250
       "kJ6NGbfo/i92CYnwZ",
       "kJ6NGbfo/Y8T1WLWJ",
       "kJ6NGbfo/oTqTakZc",
@@ -2608,7 +2574,7 @@
       "kJ6NGbfo/U2xIo65y",
       "kJ6NGbfo/JqbF6Alw",
 
-      // Step 2 Thinking Ahead, Part 13
+      // Level 251
       "qoVVBK0e/pTUgElzT",
       "qoVVBK0e/jwCVeZAn",
       "qoVVBK0e/jeBdtyCW",
@@ -2653,7 +2619,7 @@
       "qoVVBK0e/tMoobJ1B",
       "qoVVBK0e/q35uyJcd",
 
-      // Step 2 Thinking Ahead, Part 14
+      // Level 252
       "afSCwj8v/zcUcyULP",
       "afSCwj8v/tWaZePBh",
       "afSCwj8v/XDai9fjB",
@@ -2708,7 +2674,7 @@
       "afSCwj8v/N7Nz1c9K",
       "afSCwj8v/UoUJMlJw",
 
-      // Step 2 Thinking Ahead, Part 15
+      // Level 253
       "cMMberkc/NlOXqRFJ",
       "cMMberkc/sqFEDsZt",
       "cMMberkc/WJ1jqqtU",
@@ -2756,7 +2722,7 @@
       "cMMberkc/kgPk5paY",
       "cMMberkc/ynyEXELN",
 
-      // Step 2 Thinking Ahead, Part 16
+      // Level 254
       "Ck9y8OQN/bvfUbY2e",
       "Ck9y8OQN/QLkRPEwI",
       "Ck9y8OQN/hjZMp8Ns",
@@ -2811,7 +2777,7 @@
       "Ck9y8OQN/vc8n0hVO",
       "Ck9y8OQN/PLBEibQ7",
 
-      // Step 2 Thinking Ahead, Part 17
+      // Level 255
       "ju2T5GFF/hHzRZeY6",
       "ju2T5GFF/Lw0hOv3z",
       "ju2T5GFF/XGtH8mIr",
@@ -2863,7 +2829,7 @@
       "ju2T5GFF/UJrSgiV3",
       "ju2T5GFF/NYsmkKZh",
 
-      // Step 2 Thinking Ahead, Part 18
+      // Level 256
       "PfGniQxE/bdNZXc2d",
       "PfGniQxE/Hr81KJIH",
       "PfGniQxE/CaqzuA1g",
@@ -2883,7 +2849,7 @@
       "PfGniQxE/zpGyLKXv",
       "PfGniQxE/BbbDYOcv",
 
-      // Step 2 Thinking Ahead, Part 19
+      // Level 257
       "vUxHokAQ/dqhpVUG6",
       "vUxHokAQ/VJexUker",
       "vUxHokAQ/IuOYIKy6",
@@ -2902,7 +2868,7 @@
       "vUxHokAQ/PkCGwLyJ",
       "vUxHokAQ/hjBaYuKW",
 
-      // Step 2 Thinking Ahead, Part 20
+      // Level 258
       "aduDl1mX/r0fZv6Sv",
       "aduDl1mX/YT99J0fx",
       "aduDl1mX/YBbpCAKB",
@@ -2951,7 +2917,7 @@
       "aduDl1mX/80p4DOGR",
       "aduDl1mX/7hmUxsFh",
 
-      // Step 2 Thinking Ahead, Part 21
+      // Level 259
       "A9nB0byd/KO9l9CPs",
       "A9nB0byd/YVUOxPQy",
       "A9nB0byd/M0kXl5LG",
@@ -2993,7 +2959,7 @@
       "A9nB0byd/FCiVp740",
       "A9nB0byd/Q3OdL32t",
 
-      // Step 2 Thinking Ahead, Part 22
+      // Level 260
       "roXadFOi/rMJpeBTx",
       "roXadFOi/pccIIy3J",
       "roXadFOi/F6NBnznb",
@@ -3049,12 +3015,9 @@
       "roXadFOi/C3R5WjgW",
       "roXadFOi/Pwc6bAnG",
       "roXadFOi/epvHkig5",
-      "roXadFOi/zK48o8p6"
-    ];
+      "roXadFOi/zK48o8p6",
 
-    const step3 = [
-
-      // Step 3, Part 1
+      // Level 301
       "jYm3yFVw/bDH6OSeK",
       "jYm3yFVw/xNejgzUe",
       "jYm3yFVw/Fm93uDNy",
@@ -3114,7 +3077,7 @@
       "jYm3yFVw/yjDpdZFg",
       "jYm3yFVw/iwQhB8tD",
 
-      // Step 3, Part 2
+      // Level 302
       "1Z6DXdpX/4VRKwpjD",
       "1Z6DXdpX/bFLBTALv",
       "1Z6DXdpX/ZG9EfvDH",
@@ -3138,7 +3101,7 @@
       "1Z6DXdpX/iSIQ3Fdu",
       "1Z6DXdpX/OXGKP3Mx",
 
-      // Step 3, Part 3
+      // Level 303
       "TAQdcucH/uEDuOLeS",
       "TAQdcucH/zpRu7FZe",
       "TAQdcucH/EMjYHH68",
@@ -3188,7 +3151,7 @@
       "TAQdcucH/RCDYiw5Y",
       "TAQdcucH/hYXIiIrA",
 
-      // Step 3, Part 4
+      // Level 304
       "z4HAlQHa/CP1h05OU",
       "z4HAlQHa/GaNgYvp3",
       "z4HAlQHa/qxVjJCjY",
@@ -3224,7 +3187,7 @@
       "z4HAlQHa/gyUDap7P",
       "z4HAlQHa/1emRFdi5",
 
-      // Step 3, Part 5
+      // Level 305
       "l46xe1NH/iFQ5i5HT",
       "l46xe1NH/pX7NhRIM",
       "l46xe1NH/gXPlsmde",
@@ -3260,7 +3223,7 @@
       "l46xe1NH/29ajbf9z",
       "l46xe1NH/qvPt1MgL",
 
-      // Step 3, Part 6
+      // Level 306
       "xQlZQ35h/66SRKGdM",
       "xQlZQ35h/525pUjDj",
       "xQlZQ35h/q3vEIOev",
@@ -3310,7 +3273,7 @@
       "xQlZQ35h/XEf71ohV",
       "xQlZQ35h/cTNDU3JT",
 
-      // Step 3, Part 7
+      // Level 307
       "gc0CXrI4/6wV6zQFS",
       "gc0CXrI4/zcWAzf2X",
       "gc0CXrI4/PJptGEnP",
@@ -3332,7 +3295,7 @@
       "gc0CXrI4/GPLYmVew",
       "gc0CXrI4/0gdPoela",
 
-      // Step 3, Part 8
+      // Level 308
       "nXVZQPQV/LvHgwWGI",
       "nXVZQPQV/Gy96O1Wz",
       "nXVZQPQV/wpvcRGrW",
@@ -3390,7 +3353,7 @@
       "nXVZQPQV/TqvU5s9I",
       "nXVZQPQV/Qi9tFMmp",
 
-      // Step 3, Part 9
+      // Level 309
       "K8N9P49f/UTuESMMh",
       "K8N9P49f/kTEj3kYh",
       "K8N9P49f/oG8r0QsM",
@@ -3439,7 +3402,7 @@
       "K8N9P49f/i9TFeUpL",
       "K8N9P49f/nEIwMuzU",
 
-      // Step 3, Part 10
+      // Level 310
       "4jkOG2d7/powYnISj",
       "4jkOG2d7/53u2JiQT",
       "4jkOG2d7/kkKhdr13",
@@ -3500,7 +3463,7 @@
       "4jkOG2d7/G4kRgMLy",
       "4jkOG2d7/sw7s0Qvu",
 
-      // Step 3, Part 11
+      // Level 311
       "1AHB73Gm/jSCoH3cF",
       "1AHB73Gm/ilCQuuqQ",
       "1AHB73Gm/0SUW72TQ",
@@ -3561,7 +3524,7 @@
       "1AHB73Gm/t9IcPYbR",
       "1AHB73Gm/Sy4jw81K",
 
-      // Step 3, Part 12
+      // Level 312
       "pueYBdPZ/JhJYJSqF",
       "pueYBdPZ/Wph0M1hp",
       "pueYBdPZ/BAW2jaK1",
@@ -3598,7 +3561,7 @@
       "pueYBdPZ/u8JR0ozn",
       "pueYBdPZ/wVsnP6AC",
 
-      // Step 3, Part 13
+      // Level 313
       "D1W6rpV7/6hJiLUzV",
       "D1W6rpV7/VrKEgCAe",
       "D1W6rpV7/1AELpBEL",
@@ -3648,7 +3611,7 @@
       "D1W6rpV7/bjdGRjwD",
       "D1W6rpV7/kwOAMK6o",
 
-      // Step 3, Part 14
+      // Level 314
       "qQOEA0ii/aRkFkQ7X",
       "qQOEA0ii/PMXcui9L",
       "qQOEA0ii/8WckBGDV",
@@ -3706,12 +3669,9 @@
       "qQOEA0ii/JfQpsbnb",
       "qQOEA0ii/gGDR6ZqJ",
       "qQOEA0ii/ovr7LSfm",
-      "qQOEA0ii/DY5L83C4"
-    ];
+      "qQOEA0ii/DY5L83C4",
 
-    const step3extra = [
-
-      // Step 3 Extra, Part 1
+      // Level 315
       "ctqlGPnB/KpCODS9v",
       "ctqlGPnB/Az4kcJ6A",
       "ctqlGPnB/9ffdmUJ5",
@@ -3771,7 +3731,7 @@
       "ctqlGPnB/MwpfMnZG",
       "ctqlGPnB/lOuSgrdn",
       
-      // Step 3 Extra, Part 2
+      // Level 316
       "NkV7sRXr/NBdAPfy9",
       "NkV7sRXr/QBNxBpNm",
       "NkV7sRXr/PjVBgm8B",
@@ -3831,7 +3791,7 @@
       "NkV7sRXr/K782Coaw",
       "NkV7sRXr/i0cHAkHT",
 
-      // Step 3 Extra, Part 3
+      // Level 317
       "ZOWjyAoz/q6meECHq",
       "ZOWjyAoz/4X1fwxlX",
       "ZOWjyAoz/mvhoKSpe",
@@ -3892,7 +3852,7 @@
       "ZOWjyAoz/TN1VDuKu",
       "ZOWjyAoz/EAk4Th6n",
 
-      // Step 3 Extra, Part 4
+      // Level 318
       "PPFW7OJc/wQgrbQYP",
       "PPFW7OJc/5mpe85IM",
       "PPFW7OJc/K8jshej8",
@@ -3952,7 +3912,7 @@
       "PPFW7OJc/6Z2Z3Pn1",
       "PPFW7OJc/A7PclPQI",
 
-      // Step 3 Extra, Part 5
+      // Level 319
       "w3wsbn7U/5Fm68ghI",
       "w3wsbn7U/ZsyK9eda",
       "w3wsbn7U/gHxZcdyF",
@@ -4013,7 +3973,7 @@
       "w3wsbn7U/DmVmcpf5",
       "w3wsbn7U/7sQ8TPfY",
 
-      // Step 3 Extra, Part 6
+      // Level 320
       "QkllCAgu/rlwjFtBP",
       "QkllCAgu/4NKxc9lS",
       "QkllCAgu/jQcbOrEK",
@@ -4073,7 +4033,7 @@
       "QkllCAgu/UGdWoC7k",
       "QkllCAgu/awXlRG55",
 
-      // Step 3 Extra, Part 7
+      // Level 321
       "MWlT6iyQ/7aGsVqWQ",
       "MWlT6iyQ/pKElBjES",
       "MWlT6iyQ/G1oT4Wsc",
@@ -4133,7 +4093,7 @@
       "MWlT6iyQ/uFUQ9FdX",
       "MWlT6iyQ/D03BXO1p",
 
-      // Step 3 Extra, Part 8
+      // Level 322
       "ijPGi1lb/H07OftwW",
       "ijPGi1lb/ccnT1R1F",
       "ijPGi1lb/Z5HxXyBs",
@@ -4194,7 +4154,7 @@
       "ijPGi1lb/DSafyqHu",
       "ijPGi1lb/nOGWvsoM",
 
-      // Step 3 Extra, Part 9
+      // Level 323
       "5IUzLZxz/8eGfjFlS",
       "5IUzLZxz/oB7VjgvS",
       "5IUzLZxz/B3ba31KE",
@@ -4255,7 +4215,7 @@
       "5IUzLZxz/NBtIRkWU",
       "5IUzLZxz/NMfOG4Cl",
 
-      // Step 3 Extra, Part 10
+      // Level 324
       "VhEIKMg6/yvbGeEf7",
       "VhEIKMg6/147Ojzzv",
       "VhEIKMg6/FZKO5TOM",
@@ -4311,7 +4271,7 @@
       "VhEIKMg6/L0mPXBvc",
       "VhEIKMg6/v6e40AZo",
 
-      // Step 3 Extra, Part 11
+      // Level 325
       "DklsDZNs/FSdzSZg7",
       "DklsDZNs/EM5YE37H",
       "DklsDZNs/2oHElMS8",
@@ -4370,12 +4330,9 @@
       "DklsDZNs/xQWxZco5",
       "DklsDZNs/5zDM7LwN",
       "DklsDZNs/amYzkcN3",
-      "DklsDZNs/dX5LCLvZ"
-    ];
+      "DklsDZNs/dX5LCLvZ",
 
-    const step3plus = [
-
-      // Step 3 Plus, Part 1
+      // Level 326
       "zAihFBdv/Nk0bnEQa",
       "zAihFBdv/1Nhn2sz8",
       "zAihFBdv/Ri96N9ts",
@@ -4434,7 +4391,7 @@
       "zAihFBdv/4QjCv0cG",
       "zAihFBdv/wLLKzi1H",
 
-      // Step 3 Plus, Part 2
+      // Level 327
       "inl5eCja/0dBIC4H6",
       "inl5eCja/i4lLH1ii",
       "inl5eCja/vfIIunzM",
@@ -4495,7 +4452,7 @@
       "inl5eCja/BdcWbRd7",
       "inl5eCja/l9V9QEGq",
 
-      // Step 3 Plus, Part 3
+      // Level 328
       "8VyyP4kV/0lnrognj",
       "8VyyP4kV/NtpGwQgh",
       "8VyyP4kV/JO1xIkwT",
@@ -4555,7 +4512,7 @@
       "8VyyP4kV/uIHfS3lD",
       "8VyyP4kV/vnt8XFxB",
 
-      // Step 3 Plus, Part 4
+      // Level 329
       "bDwnKmms/YP1372Et",
       "bDwnKmms/NLxrNY3M",
       "bDwnKmms/78ukInQv",
@@ -4614,7 +4571,7 @@
       "bDwnKmms/OOHtHL4o",
       "bDwnKmms/lCNWkZY1",
 
-      // Step 3 Plus, Part 5
+      // Level 330
       "v3LHwWjP/ZYBrihiL",
       "v3LHwWjP/mN9sNjnl",
       "v3LHwWjP/L2gnV39D",
@@ -4672,7 +4629,7 @@
       "v3LHwWjP/im5XDdRv",
       "v3LHwWjP/pto4Kgqo",
 
-      // Step 3 Plus, Part 6
+      // Level 331
       "1iA8iLsn/7gJV691e",
       "1iA8iLsn/Bc72yU3M",
       "1iA8iLsn/adlmnVd6",
@@ -4730,7 +4687,7 @@
       "1iA8iLsn/bNFbBorx",
       "1iA8iLsn/KMGN5DAK",
 
-      // Step 3 Plus, Part 7
+      // Level 332
       "on6XATDN/ldpzlpwD",
       "on6XATDN/rps871Mm",
       "on6XATDN/7o2D8D7e",
@@ -4793,7 +4750,7 @@
       "on6XATDN/XFjoUSDQ",
       "on6XATDN/4aKCaBQ6",
 
-      // Step 3 Plus, Part 8
+      // Level 333
       "YTdeNM3p/x47iGWle",
       "YTdeNM3p/Kg8JVGEH",
       "YTdeNM3p/QgrJ1M8f",
@@ -4854,7 +4811,7 @@
       "YTdeNM3p/E410BnI1",
       "YTdeNM3p/iaeiewWs",
 
-      // Step 3 Plus, Part 9
+      // Level 334
       "bG5X1DyS/BtrMmto1",
       "bG5X1DyS/U0tJF62O",
       "bG5X1DyS/3c44mysD",
@@ -4912,7 +4869,7 @@
       "bG5X1DyS/bICnUQDO",
       "bG5X1DyS/0y8eHDYf",
 
-      // Step 3 Plus, Part 10
+      // Level 335
       "Y9cdm3vB/q3j2u22b",
       "Y9cdm3vB/hyhbkqqc",
       "Y9cdm3vB/xCqjqLrA",
@@ -4972,7 +4929,7 @@
       "Y9cdm3vB/vl82BVaL",
       "Y9cdm3vB/URUd74CH",
 
-      // Step 3 Plus, Part 11
+      // Level 336
       "mdxDILZo/H8wRbFIC",
       "mdxDILZo/VjMzDwsc",
       "mdxDILZo/Jqrw8Bud",
@@ -5006,12 +4963,9 @@
       "mdxDILZo/2lbdGGHb",
       "mdxDILZo/CxoG5KOO",
       "mdxDILZo/56oZt8pq",
-      "mdxDILZo/2K07vkaE"
-    ];
+      "mdxDILZo/2K07vkaE",
 
-    const step3mix = [
-
-      // Step 3 Mix, Part 1
+      // Level 337
       "Ljsp7qkh/vNfhaTZ1",
       "Ljsp7qkh/TXlIbYwt",
       "Ljsp7qkh/w1xhVbzT",
@@ -5069,7 +5023,7 @@
       "Ljsp7qkh/Mgb9oNI9",
       "Ljsp7qkh/cF3cs0I9",
 
-      // Step 3 Mix, Part 2
+      // Level 338
       "cjkqe6EV/S1ac0KUE",
       "cjkqe6EV/tHBLgMEv",
       "cjkqe6EV/0ff8Zcdb",
@@ -5126,7 +5080,7 @@
       "cjkqe6EV/v8HMNs4J",
       "cjkqe6EV/CgmZ6q8T",
 
-      // Step 3 Mix, Part 3
+      // Level 339
       "tBYrjgAD/fLhlr0dh",
       "tBYrjgAD/JoTsxWAh",
       "tBYrjgAD/vpNI4Ckn",
@@ -5186,7 +5140,7 @@
       "tBYrjgAD/AxrNnreC",
       "tBYrjgAD/LzA5aMly",
 
-      // Step 3 Mix, Part 4
+      // Level 340
       "ZFeKJTIB/XufBJsLu",
       "ZFeKJTIB/HFb9dtAg",
       "ZFeKJTIB/CPBnuB5x",
@@ -5243,7 +5197,7 @@
       "ZFeKJTIB/6w7BeNi8",
       "ZFeKJTIB/3RoKx4kc",
 
-      // Step 3 Mix, Part 5
+      // Level 341
       "6oqgMrrH/pccmt2rC",
       "6oqgMrrH/tlFsODcS",
       "6oqgMrrH/lxa91cgZ",
@@ -5309,7 +5263,7 @@
       "6oqgMrrH/bg6e2ppU",
       "6oqgMrrH/Pzxnotxl",
 
-      // Step 3 Mix, Part 6
+      // Level 342
       "NyTXzk89/VPB3NNJm",
       "NyTXzk89/UrQWvBOC",
       "NyTXzk89/xCQrLyNy",
@@ -5365,7 +5319,7 @@
       "NyTXzk89/GqD0KN5L",
       "NyTXzk89/vgXZQcAZ",
 
-      // Step 3 Mix, Part 7
+      // Level 343
       "VhMcK1ck/S04CWejm",
       "VhMcK1ck/SOKPxEYa",
       "VhMcK1ck/pVkASi3V",
@@ -5423,7 +5377,7 @@
       "VhMcK1ck/vaha5sMo",
       "VhMcK1ck/ORkfpBOU",
 
-      // Step 3 Mix, Part 8
+      // Level 344
       "Be0g1NHs/Z4urBRxE",
       "Be0g1NHs/Zue9cIYD",
       "Be0g1NHs/GCE4L2ZF",
@@ -5481,7 +5435,7 @@
       "Be0g1NHs/iDIlngiP",
       "Be0g1NHs/nBLzbSk8",
 
-      // Step 3 Mix, Part 9
+      // Level 345
       "C2iG24xJ/TvM7PjCO",
       "C2iG24xJ/Tq72QExx",
       "C2iG24xJ/8lMzKYZI",
@@ -5541,7 +5495,7 @@
       "C2iG24xJ/4flaueZ7",
       "C2iG24xJ/8V7i59NY",
 
-      // Step 3 Mix, Part 10
+      // Level 346
       "oUeH5Oa0/EgTzGGKL",
       "oUeH5Oa0/LIqx11cs",
       "oUeH5Oa0/u78gPTne",
@@ -5599,7 +5553,7 @@
       "oUeH5Oa0/DnpY8g2D",
       "oUeH5Oa0/ainMudac",
 
-      // Step 3 Mix, Part 11
+      // Level 347
       "xzawJjpS/12FpnEnf",
       "xzawJjpS/xIcthlaF",
       "xzawJjpS/67rZEQHJ",
@@ -5637,7 +5591,7 @@
       "xzawJjpS/zbww8WAC",
       "xzawJjpS/GiwCa2fU",
 
-      // Step 3 Mix, Part 12
+      // Level 348
       "4veMQU47/ep46JPAR",
       "4veMQU47/jUXtd6Yw",
       "4veMQU47/HLY0uMkh",
@@ -5683,7 +5637,7 @@
       "4veMQU47/0xHD5svB",
       "4veMQU47/kPmkFUH8",
 
-      // Step 3 Mix, Part 13
+      // Level 349
       "0pQlAQsj/deBiYazm",
       "0pQlAQsj/IwbIbMly",
       "0pQlAQsj/cFammPNO",
@@ -5733,7 +5687,7 @@
       "0pQlAQsj/DMHIS0s4",
       "0pQlAQsj/LBI83onG",
 
-      // Step 3 Mix, Part 14
+      // Level 350
       "ZpqYq2LC/uYe02LuV",
       "ZpqYq2LC/dgKYnBZ4",
       "ZpqYq2LC/zKyIUbPw",
@@ -5766,12 +5720,9 @@
       "ZpqYq2LC/PGxm2hvl",
       "ZpqYq2LC/XuUvQQWL",
       "ZpqYq2LC/pow5H05U",
-      "ZpqYq2LC/wEJbjOZh"
-    ];
+      "ZpqYq2LC/wEJbjOZh",
 
-    const step3thinkingahead = [
-
-      // Step 3 Thinking Ahead, Part 1
+      // Level 351
       "dbQTNqQb/E7KZQKlQ",
       "dbQTNqQb/N5e1m6H8",
       "dbQTNqQb/1ioHupWr",
@@ -5829,7 +5780,7 @@
       "dbQTNqQb/MulhLgaw",
       "dbQTNqQb/koHF5GEw",
 
-      // Step 3 Thinking Ahead, Part 2
+      // Level 352
       "bn4eHXTE/0VXMxx29",
       "bn4eHXTE/S3ifYnhu",
       "bn4eHXTE/v8tB30jG",
@@ -5843,7 +5794,7 @@
       "bn4eHXTE/1dItTrx8",
       "bn4eHXTE/EieXOD3u",
 
-      // Step 3 Thinking Ahead, Part 3
+      // Level 353
       "l20eKsiK/k8MuISOm",
       "l20eKsiK/tj3sn7FK",
       "l20eKsiK/XRbuqMhY",
@@ -5862,7 +5813,7 @@
       "l20eKsiK/Phjfqnow",
       "l20eKsiK/UcuANYE0",
 
-      // Step 3 Thinking Ahead, Part 4
+      // Level 354
       "z8MSHun5/PXCzz8AP",
       "z8MSHun5/yoBz4DKh",
       "z8MSHun5/gMHKCytu",
@@ -5902,7 +5853,7 @@
       "z8MSHun5/buoLt0K7",
       "z8MSHun5/Fcpj38jP",
 
-      // Step 3 Thinking Ahead, Part 5
+      // Level 355
       "oVaKkVOB/FzRx7dgP",
       "oVaKkVOB/c2abteYl",
       "oVaKkVOB/vEvATN4C",
@@ -5936,7 +5887,7 @@
       "oVaKkVOB/UE7MbKMg",
       "oVaKkVOB/drNtbofH",
 
-      // Step 3 Thinking Ahead, Part 6
+      // Level 356
       "5Jp9ePxX/juB2ZaH0",
       "5Jp9ePxX/rPmuYMCK",
       "5Jp9ePxX/jnaDPkiO",
@@ -5983,7 +5934,7 @@
       "5Jp9ePxX/p8e70DJA",
       "5Jp9ePxX/XjRJltx4",
 
-      // Step 3 Thinking Ahead, Part 7
+      // Level 357
       "i4VHLChJ/WWtBLCga",
       "i4VHLChJ/eK80faRR",
       "i4VHLChJ/99rd39qQ",
@@ -6031,7 +5982,7 @@
       "i4VHLChJ/8FT9marT",
       "i4VHLChJ/YETZW8eO",
 
-      // Step 3 Thinking Ahead, Part 8
+      // Level 358
       "VUU9VWmN/AV8LALjC",
       "VUU9VWmN/MdHQbUaD",
       "VUU9VWmN/PR1FwotC",
@@ -6071,7 +6022,7 @@
       "VUU9VWmN/1ngWyLvG",
       "VUU9VWmN/Jqunc9kN",
 
-      // Step 3 Thinking Ahead, Part 9
+      // Level 359
       "LTP87faO/Dxa8xHoG",
       "LTP87faO/8S6QULGv",
       "LTP87faO/WgUrYMOK",
@@ -6120,7 +6071,7 @@
       "LTP87faO/vSKzFTGU",
       "LTP87faO/p229wFZz",
 
-      // Step 3 Thinking Ahead, Part 10
+      // Level 360
       "JHWFANUR/O39PT0bY",
       "JHWFANUR/ClEoGF4D",
       "JHWFANUR/U9l0bIZR",
@@ -6158,7 +6109,7 @@
       "JHWFANUR/1N8mKGMj",
       "JHWFANUR/G9m5KWCK",
 
-      // Step 3 Thinking Ahead, Part 11
+      // Level 361
       "wAVnrS09/IdgAAJsx",
       "wAVnrS09/J6ug4VK6",
       "wAVnrS09/2A1V2qxK",
@@ -6190,7 +6141,7 @@
       "wAVnrS09/n30PYsFA",
       "wAVnrS09/Q9BeV2lV",
 
-      // Step 3 Thinking Ahead, Part 12
+      // Level 362
       "qx7RzgYX/H6Tm4H4H",
       "qx7RzgYX/fzAutRoI",
       "qx7RzgYX/57JejNou",
@@ -6244,7 +6195,7 @@
       "qx7RzgYX/V8Or0HBk",
       "qx7RzgYX/62gDzcfB",
 
-      // Step 3 Thinking Ahead, Part 13
+      // Level 363
       "mKQSO4fs/X1CM8MkS",
       "mKQSO4fs/3fVo25Xa",
       "mKQSO4fs/6ak0k6eM",
@@ -6296,7 +6247,7 @@
       "mKQSO4fs/lMp5yQCb",
       "mKQSO4fs/Xu8DeSSR",
 
-      // Step 3 Thinking Ahead, Part 14
+      // Level 364
       "0fL6SW9c/B2JOpfmG",
       "0fL6SW9c/R3zZn05Y",
       "0fL6SW9c/uH7L8V4k",
@@ -6319,7 +6270,7 @@
       "0fL6SW9c/MOkUGfqp",
       "0fL6SW9c/GAvbmNGn",
 
-      // Step 3 Thinking Ahead, Part 15
+      // Level 365
       "IOzJtqPJ/I2vu2SmY",
       "IOzJtqPJ/5SKE73vn",
       "IOzJtqPJ/oBNX1eY7",
@@ -6342,7 +6293,7 @@
       "IOzJtqPJ/MbEefeoe",
       "IOzJtqPJ/5Yiotu9t",
 
-      // Step 3 Thinking Ahead, Part 16
+      // Level 366
       "Z5aeYXCK/WQGEcMcy",
       "Z5aeYXCK/YcjuBrjJ",
       "Z5aeYXCK/POWqCXSV",
@@ -6366,7 +6317,7 @@
       "Z5aeYXCK/PDrBOIvM",
       "Z5aeYXCK/GMyfs4SY",
 
-      // Step 3 Thinking Ahead, Part 17
+      // Level 367
       "q8zC2Khv/IbDAVvdh",
       "q8zC2Khv/7QqfSJXh",
       "q8zC2Khv/V4C7t6o3",
@@ -6388,7 +6339,7 @@
       "q8zC2Khv/wgHJDjZB",
       "q8zC2Khv/AXaejYLx",
 
-      // Step 3 Thinking Ahead, Part 18
+      // Level 368
       "WFdYzBcQ/ArYeERvw",
       "WFdYzBcQ/FgI4claJ",
       "WFdYzBcQ/hq9Yiola",
@@ -6411,7 +6362,7 @@
       "WFdYzBcQ/dGrPbldQ",
       "WFdYzBcQ/Sw6D8gq6",
 
-      // Step 3 Thinking Ahead, Part 19
+      // Level 369
       "sC5AjX5s/QaHAvSzV",
       "sC5AjX5s/cCkKgGN0",
       "sC5AjX5s/8NyhzDll",
@@ -6459,7 +6410,7 @@
       "sC5AjX5s/aABent3n",
       "sC5AjX5s/CnSM7vUO",
 
-      // Step 3 Thinking Ahead, Part 20
+      // Level 370
       "WlA69h6C/TtpIsPiM",
       "WlA69h6C/ONjmjA0w",
       "WlA69h6C/GawHeezR",
@@ -6523,8 +6474,7 @@
       "WlA69h6C/OspSjdyB",
       "WlA69h6C/j7CgT10P",
 
-      // Step 3 Thinking Ahead, Part 21
-
+      // Level 371
       "YkHcFgj6/QYSoVrTP",
       "YkHcFgj6/TaDipH30",
       "YkHcFgj6/O0Q5GM3i",
@@ -6577,7 +6527,7 @@
       "YkHcFgj6/jXPDyf6H",
       "YkHcFgj6/gXoytY9T",
 
-      // Step 3 Thinking Ahead, Part 22
+      // Level 372
       "xvBd6JYE/M7Y1ASVO",
       "xvBd6JYE/NKlX9z82",
       "xvBd6JYE/FPLfCw4b",
@@ -6609,7 +6559,7 @@
       "xvBd6JYE/RQOvR2tR",
       "xvBd6JYE/Y6vrDmCi",
 
-      // Step 3 Thinking Ahead, Part 23
+      // Level 373
       "oSYVRyBf/3YicgQky",
       "oSYVRyBf/wBSvyQa7",
       "oSYVRyBf/PLxIx6K5",
@@ -6630,7 +6580,7 @@
       "oSYVRyBf/ZUV1yLJC",
       "oSYVRyBf/v11rrEiy",
 
-      // Step 3 Thinking Ahead, Part 24
+      // Level 374
       "AiPUWAo8/wSb91pHb",
       "AiPUWAo8/VjCpxMNO",
       "AiPUWAo8/PejzzNrC",
@@ -6653,7 +6603,7 @@
       "AiPUWAo8/cBGyRAyc",
       "AiPUWAo8/bsckuTzf",
 
-      // Step 3 Thinking Ahead, Part 25
+      // Level 375
       "4dSDPOOz/XKmRNr9r",
       "4dSDPOOz/S2huUkyF",
       "4dSDPOOz/j1eYKny5",
@@ -6676,7 +6626,7 @@
       "4dSDPOOz/vLfzdDQz",
       "4dSDPOOz/uGYRFR6F",
 
-      // Step 3 Thinking Ahead, Part 26
+      // Level 376
       "PHoDKIif/yYESPMEg",
       "PHoDKIif/2wr7s6XV",
       "PHoDKIif/NM3SV64J",
@@ -6698,7 +6648,7 @@
       "PHoDKIif/oUDtWNTR",
       "PHoDKIif/kcafSZyX",
 
-      // Step 3 Thinking Ahead, Part 27
+      // Level 377
       "EtOj5Z9I/xSFDYosW",
       "EtOj5Z9I/y0S3h61J",
       "EtOj5Z9I/z5Fyfgvf",
@@ -6726,7 +6676,7 @@
       "EtOj5Z9I/YKSTlo1c",
       "EtOj5Z9I/Y5HB2ltI",
 
-      // Step 3 Thinking Ahead, Part 28
+      // Level 378
       "F22l3t1U/1RJlb6wo",
       "F22l3t1U/8SoASmeh",
       "F22l3t1U/BM2VlEWc",
@@ -6757,11 +6707,9 @@
       "F22l3t1U/HQszY25a",
       "F22l3t1U/629PJiik",
       "F22l3t1U/feeWvWWV"
-    ];
 
-    const step4 = [
-
-      // Step 4, Part 1
+      /*
+      // Level 401
       "0iAhqOrc/0cLHuT88",
       "0iAhqOrc/z8V4bicg",
       "0iAhqOrc/BgI5Go8t",
@@ -6820,7 +6768,7 @@
       "0iAhqOrc/Jyyv59JA",
       "0iAhqOrc/nkGlVVbn",
 
-      // Step 4, Part 2
+      // Level 402
       "mkfc7yNu/P98zQjBI",
       "mkfc7yNu/00N91Ocg",
       "mkfc7yNu/BkplRf6w",
@@ -6879,7 +6827,7 @@
       "mkfc7yNu/w9r089Nu",
       "mkfc7yNu/zGiQyDlt",
 
-      // Step 4, Part 3
+      // Level 403
       "qHnBEMOn/IwnIItyq",
       "qHnBEMOn/UHDbhdSX",
       "qHnBEMOn/nA4m7qzH",
@@ -6903,7 +6851,7 @@
       "qHnBEMOn/K9m1yZis",
       "qHnBEMOn/omYRCtZG",
 
-      // Step 4, Part 4
+      // Level 404
       "cCIjsXvo/UWrGTfhI",
       "cCIjsXvo/y9keF6zk",
       "cCIjsXvo/7hdlFR4r",
@@ -6953,7 +6901,7 @@
       "cCIjsXvo/CXN5wqGo",
       "cCIjsXvo/dQLnXRwb",
 
-      // Step 4, Part 5
+      // Level 405
       "IyKgfIRi/a5oI4YFd",
       "IyKgfIRi/Lw64CLop",
       "IyKgfIRi/aPw68mVV",
@@ -7011,7 +6959,7 @@
       "IyKgfIRi/vaenmJdR",
       "IyKgfIRi/IEXa5Wc2",
 
-      // Step 4, Part 6
+      // Level 406
       "OdwWgIKw/hBebA8pG",
       "OdwWgIKw/15EFUbHv",
       "OdwWgIKw/8sAbS0K2",
@@ -7069,23 +7017,23 @@
       "OdwWgIKw/NRe6weEV",
       "OdwWgIKw/4bORHyz3",
       "OdwWgIKw/8xcHMy3T",
-      "OdwWgIKw/6G85fFXN"
-      //,
+      "OdwWgIKw/6G85fFXN",
 
+      // Level 407
 
-      // Step 4, Part 7
+      // Level 408
 
-      // Step 4, Part 8
+      // Level 409
 
-      // Step 4, Part 9
+      // Level 410
 
-      // Step 4, Part 10
+      // Level 411
 
-      // Step 4, Part 11
+      // Level 412
 
-      // Step 4, Part 12
+      // Level 413
 
-      // Step 4, Part 13
+      */
 
     ];
 
