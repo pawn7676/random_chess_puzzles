@@ -5,14 +5,15 @@
   <title>Redirecting...</title>
   <script>
     
-    function startRedirect() {
-
-      // Hardware-level random entropy function
-      function getSecureRandomInt(max) {
+    // Hardware-level random entropy
+    function getSecureRandomInt(list_length) {
         const array = new Uint32Array(1);
         window.crypto.getRandomValues(array);
-        return array[0] % max;
-      }
+        return array[0] % list_length;
+    }
+
+    // Main function to select and display random puzzle
+    function startRedirect() {
 
       // Pick a random puzzle using hardware entropy
       const randomPuzzle = puzzles[getSecureRandomInt(puzzles.length)];
@@ -6706,7 +6707,7 @@
       "F22l3t1U/P6XdPY2y",
       "F22l3t1U/HQszY25a",
       "F22l3t1U/629PJiik",
-      "F22l3t1U/feeWvWWV"
+      "F22l3t1U/feeWvWWV",
 
       /*
       // Level 401
