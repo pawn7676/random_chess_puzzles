@@ -19,8 +19,8 @@
       const randomPuzzle = puzzles[getSecureRandomInt(puzzles.length)];
       
       // Create a "Cache Buster" using current time in milliseconds
-      // To make it shorter, convert time to base36 and grab the last 6 chars
-      const cacheBuster = "?t=" + Date.now().toString(36).slice(-6);
+      // To make it shorter, convert to base36 and grab the last 4 chars
+      const cacheBuster = "?t=" + Date.now().toString(36).slice(-4);
 
       // Force a fresh redirect
       window.location.replace("https://lichess.org/study/" + randomPuzzle + cacheBuster);
