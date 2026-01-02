@@ -4,26 +4,17 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-
-    // Generate random number with hardware-level entropy
-    function getSecureRandomInt(list_length) {
-        const array = new Uint32Array(1);
-        window.crypto.getRandomValues(array);
-        return array[0] % list_length;
-    }
-
-    // Main function to select and display random puzzle
     function startRedirect() {
 
-      // Pick a random puzzle using hardware entropy
-      const randomOpening = openings[getSecureRandomInt(openings.length)];
-      
-      // Create a "Cache Buster" using current time in milliseconds
-      // To make it shorter, convert time to base36 and grab the last 5 chars
-      const cacheBuster = "?t=" + Date.now().toString(36).slice(-5);
+      // Generate random number with hardware-level entropy
+      const array = new Uint32Array(1);
+      window.crypto.getRandomValues(array);
 
-      // Force a fresh redirect
-      window.location.replace("https://lichess.org/study/" + randomOpening + cacheBuster);
+      // Pick a puzzle using the random number
+      const randomOpening = openings[array[0] % openings.length];
+
+      // Force a fresh redirect, add time as a "cache buster"
+      window.location.replace("https://lichess.org/study/" + randomOpening + "?t=" + Date.now());
     }
 
     const openings = [
