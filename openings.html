@@ -10,14 +10,14 @@
       const array = new Uint32Array(1);
       window.crypto.getRandomValues(array);
 
-      // Pick a puzzle using the random number
-      const randomOpening = openings[array[0] % openings.length];
+      // Pick a chapter using the random number
+      const randomChapter = chapters[array[0] % chapters.length];
 
       // Force a fresh redirect, add time as a "cache buster"
-      window.location.replace("https://lichess.org/study/" + randomOpening + "?t=" + Date.now());
-    }
+      window.location.replace("https://lichess.org/study/" + randomChapter + "?t=" + Date.now());
+      }
 
-    const openings = [
+    const chapters = [
       "2btYZdnB/0aFE3hrF",
       "2btYZdnB/0H6f2RtT",
       "2btYZdnB/1kGdMmt4",
