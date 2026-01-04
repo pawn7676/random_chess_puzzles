@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lichess Daily Coach</title>
+  
+  <style>
+    :root {
+      --bg-color: #161512;
+      --accent-color: #45a049;
+      --accent-hover: #52be56;
+      --border-color: #3d3d3d;
+    }
+
+    body { 
+      background: var(--bg-color); 
+      color: white; 
+      font-family: -apple-system, sans-serif;
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center;
+      margin: 0; 
+      min-height: 100vh;
+      overflow: hidden; 
+    }
+
+    /* The Clipping Window */
+    .window-container {
+      width: 960px; 
+      height: 660px;
+      overflow: hidden; 
+      position: relative;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      background: #1d1c19;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
+
+    /* Positioning the Lichess site to show Board + Octopus */
+    #chess-frame {
+      width: 1350px;  
+      height: 1000px;
+      position: absolute;
+      top: -105px;   /* Pulls the page up to hide the Lichess top bar */
+      left: -195px;  /* Pulls the page left to hide the side margin */
+      border: none;
+      transition: opacity 0.2s ease;
+    }
+
+    /* The Button Styling */
+    .controls {
+      margin-top: 25px;
+    }
+
+    #new-puzzle-btn {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      font-size: 19px;
+      font-weight: bold;
+      border-radius: 50px; 
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #new-puzzle-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    #new-puzzle-btn:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="window-container">
+    <iframe id="chess-frame" src="about:blank"></iframe>
+  </div>
+
+  <div class="controls">
+    <button id="new-puzzle-btn" onclick="loadRandomStudy()">
+      <span>Next Puzzle</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <script>
+    const chapters = [
+      "A0Bl4tdk/qXrAMrmB",
+      "A0Bl4tdk/n01quAY4",
+      "A0Bl4tdk/Lc5xuG4K",
+      "A0Bl4tdk/9TpiMV9w",
+      "A0Bl4tdk/8OAm4kHF",
+      "A0Bl4tdk/0ELB17Ot",
+      "A0Bl4tdk/J6j4rpzY"
+    ];
+
+    function loadRandomStudy() {
+      const frame = document.getElementById('chess-frame');
+      
+      const array = new Uint32Array(1);
+      window.crypto.getRandomValues(array);
+      const randomChapter = chapters[array[0] % chapters.length];
+      
+      const newUrl = "https://lichess.org/study/" + randomChapter + "?t=" + Date.now();
+      
+      // Simple visual feedback when loading
+      frame.style.opacity = "0.6";
+      frame.src = newUrl;
+      
+      frame.onload = () => {
+        frame.style.opacity = "1";
+      };
+    }
+
+    // Load the first puzzle immediately
+    loadRandomStudy();
+  </script>
+</body>
+</html>
