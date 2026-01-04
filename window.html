@@ -110,7 +110,7 @@
       window.crypto.getRandomValues(array);
       const randomChapter = chapters[array[0] % chapters.length];
       
-      const newUrl = "https://lichess.org/study/" + randomChapter + "?t=" + Date.now();
+      const newUrl = "https://lichess.org/study/embed/" + randomChapter + "?t=" + Date.now();
       
       // Simple visual feedback when loading
       frame.style.opacity = "0.6";
