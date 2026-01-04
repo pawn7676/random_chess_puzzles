@@ -1,59 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Lichess Daily Coach</title>
-  <style>
-    body { 
-      background: #161512; 
-      color: white; 
-      font-family: -apple-system, sans-serif;
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-    #next-btn {
-      background: #45a049;
-      color: white;
-      border: none;
-      padding: 20px 50px;
-      font-size: 24px;
-      font-weight: bold;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    h2 { margin-bottom: 30px; opacity: 0.8; }
-  </style>
+    <title>Puzzle Database</title>
 </head>
-<body>
+<body style="background: #161512;">
+    <script>
+        // Your 9,000 IDs go here
+        const chapters = [
+            "A0Bl4tdk/qXrAMrmB",
+            "A0Bl4tdk/n01quAY4",
+            "A0Bl4tdk/Lc5xuG4K",
+            /* ... paste all your thousands of IDs here ... */
+        ];
 
-  <h2>Ready for a new puzzle?</h2>
-  
-  <button id="next-btn" onclick="goToRandomPuzzle()">
-    Next Puzzle →
-  </button>
+        // This function picks a random ID and "shouts" it to the parent window
+        function sendRandomPuzzle() {
+            const array = new Uint32Array(1);
+            window.crypto.getRandomValues(array);
+            const randomID = chapters[array[0] % chapters.length];
+            window.parent.postMessage(randomID, "*");
+        }
 
-  <script>
-    const chapters = [
-      "A0Bl4tdk/qXrAMrmB", "A0Bl4tdk/n01quAY4", "A0Bl4tdk/Lc5xuG4K",
-      "A0Bl4tdk/9TpiMV9w", "A0Bl4tdk/8OAm4kHF", "A0Bl4tdk/0ELB17Ot", "A0Bl4tdk/J6j4rpzY"
-    ];
-
-    function goToRandomPuzzle() {
-      const array = new Uint32Array(1);
-      window.crypto.getRandomValues(array);
-      const randomChapter = chapters[array[0] % chapters.length];
-      
-      // Redirects to the full site so you get the octopus 100% of the time
-      window.location.href = "https://lichess.org/study/" + randomChapter;
-    }
-
-    // Optional: Load the first one immediately if you want
-    // goToRandomPuzzle(); 
-  </script>
+        // Listen for the "Gimme" signal from your Bookmarklet
+        window.addEventListener("message", (event) => {
+            if (event.data === "GIMME_PUZZLE") {
+                sendRandomPuzzle();
+            }
+        });
+    </script>
 </body>
 </html>
