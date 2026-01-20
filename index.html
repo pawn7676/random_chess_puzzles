@@ -10,13 +10,13 @@
       const randomNumbers = new Uint32Array(2);
       window.crypto.getRandomValues(randomNumbers);
 
-      // 2. Pick a random study from the 'data' array:
+      // 2. Pick a random study from the "data" array:
       const randomStudy = data[randomNumbers[0] % data.length];
 
-      // 3. Index [0] is study name, index [1] is array of chapters. Pick a random chapter:
+      // 3. randomStudy[0] is study name, randomStudy[1] is array of chapters. Pick a random chapter:
       const randomChapter = randomStudy[1][randomNumbers[1] % randomStudy[1].length];
 
-      // 4. Perform the redirect:
+      // 4. Perform the redirect, add time in ms as a "cachebuster":
       window.location.replace("https://lichess.org/study/" + randomStudy[0] + '/' + randomChapter + "?t=" + Date.now());
     }
 
@@ -446,7 +446,6 @@
       // Level 404
       ["cCIjsXvo",["UWrGTfhI","y9keF6zk","7hdlFR4r","XWtBymRA","55Z8TL74","lvfvreHx","omKVjFbv","zqfsYpMN","7NmgVApq","Jo0Gp16y","8oWl43gx","7Wy2omUC","c57uwZvM","6rG1CfhU","g0dsiFxz","c5OhpGTm","V7mJDiFr","yu8TvoR1","MSKmUOHv","29bJdYnD","nqaAbIrc","rEYlqRSr","TnuRy9rh","soh6JoZb","mmJ0a78s","Lc90RD38","eS36l3fK","p7QNdd2Y","jyyNX3xw","kLlWRHLo","ZvbbGiJr","6gvYfQu3","C68DZhWT","Lae2E6mx","V9Ew3Ylv","diOA7eaA","e8DhpkuJ","sslMoxq9","WepPAnZp","m9suamml","bQfqp7RZ","NWJrdqj8","vsRfIqrc","LIxuMErs","KrlFxnSt","4gMgxfJH","CXN5wqGo","dQLnXRwb"]],
 
-			/*
       // Level 405
       ["IyKgfIRi",["a5oI4YFd","Lw64CLop","aPw68mVV","J8hXZPrX","yJYgn0XY","gYcDMFbe","sFye199Z","L4c4hs7n","FbzKvBdE","A6fgKfYN","keQI0Vhh","9obXUqmq","D7zhn6KM","C1ucfQcN","mMAtLY7L","9zclJg23","JApinIOw","5EPpq6W7","r7UKwvBs","t7CFb9cO","BmFoNYVh","BY4PSNYV","3uqO1TID","SvRkjVki","xqyXR3sm","jrrrlSDf","Dj0z5COq","8fj6Qzan","QYN4QsY5","vwRYmd1I","1SeJ957R","9TxZo8cQ","DnoVvsiC","M2ISFT8a","YolJDMbg","KqR15SkF","Y4XinDVi","rNu5LEwM","xXnrVk8y","uwo9LxFw","yvYbsNIE","91bubi48","cw2aWodE","ieTwsBSl","TiRwOthQ","ImulQyc0","b0oLFZtV","E5MUk92a","WmEmjagV","upGcGrqk","0Ao8haKh","eImQ0DuZ","rbL4TRTP","QGeLIXMD","vaenmJdR","IEXa5Wc2"]],
 
@@ -467,7 +466,9 @@
 
       // Level 413
 
-      */
+      // Mate in Two (307-350)
+      ["GNsgs8Ni", ["3pwaftMy", "nK0FeejE", "yPaMDJz7", "QJ4P1N79", "qP56vcBE", "QvJHDVWF", "4eLB37nG", "oBABRmAa", "NulK4hrZ", "B25El53W", "5Xw9yYup", "voF0NnnL", "zwwyN1He", "qF28hjJ9", "OKessGmw", "39sjjxJo", "gztXz73f", "3r8iEavK", "FuJg3wNB", "ZCao8vaa", "CQTRrzs8", "sPenCV5K", "MWuqRVOV", "9U3B8HtN", "iGcVGnXb", "W3nwPIpe", "Xa60XLfQ", "ePx52OJl", "sKSM4ZgK", "SUmG8V8M", "bZD8a9tq", "ksTFwd13", "6dGZEaRr", "n3uscrbM", "0bezaWQs", "HjGVJI5b", "3LVVIsL0", "xIVQsWNG", "x6kUfwdR", "4Q6MOcY9", "weMEfUvp", "MuEg8ImL", "O8yoMZ6J", "tLs3FYsy"]],
+
     ];
 
     startRedirect();
