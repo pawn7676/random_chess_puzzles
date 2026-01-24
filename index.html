@@ -6,21 +6,25 @@
   <script>
     function startRedirect() {
 
-      // 1. Generate 2 random numbers with hardware-level entropy:
-      const randomNumbers = new Uint32Array(2);
+      // 1. Generate 3 random numbers with hardware-level entropy:
+      const randomNumbers = new Uint32Array(3);
       window.crypto.getRandomValues(randomNumbers);
 
-      // 2. Pick a random study from the "data" array:
-      const randomStudy = data[randomNumbers[0] % data.length];
+      // 2. Pick a random level:
+      const levels = [level2, level3, level4, mate_in_2];
+      const randomLevel = levels[randomNumbers[0] % levels.length];
 
-      // 3. randomStudy[0] is study name, randomStudy[1] is array of chapters. Pick a random chapter:
-      const randomChapter = randomStudy[1][randomNumbers[1] % randomStudy[1].length];
+      // 3. Pick a random study from the randomLevel array:
+      const randomStudy = randomLevel[randomNumbers[1] % data.length];
 
-      // 4. Perform the redirect, add time in ms as a "cachebuster":
+      // 4. randomStudy[0] is study name, randomStudy[1] is array of chapters. Pick a random chapter:
+      const randomChapter = randomStudy[1][randomNumbers[2] % randomStudy[1].length];
+
+      // 5. Perform the redirect, add time in ms as a "cachebuster":
       window.location.replace("https://lichess.org/study/" + randomStudy[0] + '/' + randomChapter + "?t=" + Date.now());
     }
 
-    const data = [
+    const level2 = [
       // Level 201
       ["A0Bl4tdk",["qXrAMrmB","n01quAY4","Lc5xuG4K","9TpiMV9w","8OAm4kHF","0ELB17Ot","J6j4rpzY","BEW4aDF1","PMzIoNVV","xiXdXvRY","4tXRkG1m","WNvZAmRH","9qFpe4jX","VHUuPdOO","KEjsVDmz","B6C8nNfl","pLLwWq7R","N8VMAWFa","QcWVteBn","97Zq5gvZ","QPjkbkjz","MWky8j1x","eazCw6s5","EH6a1HWG","y48hYMvb","nDwsqWud","MZ3OdJsV","3g2IBxKe","q6r8Jg5n","HOccRqbw","6uY2mEbL","thF1USTQ","l5PmwCMg","NbCg68UJ","gKMtKMSB","27pxQAB4","MF6QLpKo","Wulwla2Y","Tx3L2RJm","PBcsWq8B","XJiT5ESt","GjoPow4F","6XcjmiJf","QXHpveiZ","QDX4Mh5v","37OfBjlU","4PCGyNA1","PSJpi31k","YEhicj1j","GVfOdm7b","0qRAawqE","NYymMhLO","bs6qmoGi","qDWhLs10","eQLlhvQG","H3JN8K5p","vUrDHBcI","Rv1qGPpt"]],
 
@@ -199,8 +203,10 @@
       ["A9nB0byd",["KO9l9CPs","YVUOxPQy","M0kXl5LG","efElNv9Z","QnvExygZ","4WL30qZo","fvjsi0gM","Bzamom9d","wDpW7DFt","OPFoMpNA","iFJrcJ1R","WxLFxUdP","KbS3wmvQ","YVLNzBU2","j22ysQjg","5V0QleOL","VNhkcISe","oVjhHDzj","dTvV4VjN","zjWRcgVr","VIl7RMOz","luvWaujd","adbZIch2","1fLSnzco","ICPXEAnw","sZEle2Uu","5XOQFfJl","KtEKm03s","lAiOrepV","9V9fk0WB","Pwff3rta","11b0PBu3","1Wpi7eUe","4Qfgxy7T","trrrZgcr","DFoRu4WV","Vohazpdu","90uSvzXo","FCiVp740","Q3OdL32t"]],
 
       // Level 260
-      ["roXadFOi",["rMJpeBTx","pccIIy3J","F6NBnznb","d9ueW8rz","0ExV928H","70Gbhgcp","zhfOEpBO","aVFBgWsC","3xwAC7vi","ZuNcpXS1","y5OMVemv","RgIMmksr","tv9Tvv9w","zALDzYU6","cMYw1wjZ","TWadzEGJ","glIVVaVE","W6IpHWKa","dBuATdU2","36Rlm2nP","fpkqCWES","cy1wT9jh","HgJXgc5d","QEvwjedB","9GAXU9MN","UgM3QK9M","d9MxmLK8","2uION020","SM9uZUKI","toIagYZU","jWZ4FFFH","VyycqROI","OPbJJ96C","zBOJRhW6","MFDXEGc0","PAzzmu8s","D2dxIoIT","uASSlRJ7","1oKW9tKA","iNJrwzEB","f3fARoHi","jqiKosii","dggebIPi","aN2ziReF","CVi9AqVY","xUJh78bt","nDK1TxHE","LmsiRzV0","BsBiwdmB","N8Yx0q3M","tfybo4BT","kPYmrk4p","C3R5WjgW","Pwc6bAnG","epvHkig5","zK48o8p6"]],
+      ["roXadFOi",["rMJpeBTx","pccIIy3J","F6NBnznb","d9ueW8rz","0ExV928H","70Gbhgcp","zhfOEpBO","aVFBgWsC","3xwAC7vi","ZuNcpXS1","y5OMVemv","RgIMmksr","tv9Tvv9w","zALDzYU6","cMYw1wjZ","TWadzEGJ","glIVVaVE","W6IpHWKa","dBuATdU2","36Rlm2nP","fpkqCWES","cy1wT9jh","HgJXgc5d","QEvwjedB","9GAXU9MN","UgM3QK9M","d9MxmLK8","2uION020","SM9uZUKI","toIagYZU","jWZ4FFFH","VyycqROI","OPbJJ96C","zBOJRhW6","MFDXEGc0","PAzzmu8s","D2dxIoIT","uASSlRJ7","1oKW9tKA","iNJrwzEB","f3fARoHi","jqiKosii","dggebIPi","aN2ziReF","CVi9AqVY","xUJh78bt","nDK1TxHE","LmsiRzV0","BsBiwdmB","N8Yx0q3M","tfybo4BT","kPYmrk4p","C3R5WjgW","Pwc6bAnG","epvHkig5","zK48o8p6"]]
+    ];
 
+    const level3 = [
       // Level 301
       ["jYm3yFVw",["bDH6OSeK","xNejgzUe","Fm93uDNy","EKBiCaMX","B8h4RdYT","R13eRikH","IDJh7mni","I08ZiVsc","WbpJpGfn","CQpokSgC","55jZ0H9C","dSH3iPu6","r10bnpSD","8fm2fQ1t","w8TDNOkY","dt2UamvJ","job1ph10","bXI3W4Ee","RkXeKamU","azBjJlCE","d8VCLSZV","QaAuL8zj","s3MmzRU6","63u6wcAi","2MY6NIPV","6nwsivAM","MV9KUXKY","7a7waZlV","XGVgAeIj","NV1lnNp2","UZ0yjQqW","cPTjk7vz","oJUDZVqo","3VzO8ZKg","Z5D0VsPg","GRdySBoP","Lv3pHAHa","31l4kIM5","0Fx9pINc","kfQdoqsz","aZJkrVxF","53SuVho1","tJgVB1bF","OWdjiHxJ","5bHrxAQm","AKfRSkqn","03Ca8Y68","7fxLDl88","lJ6bmHXF","lMRi3hbh","Qwfu3Gcv","dTNy1itH","204lZmE9","9sU9Emvg","F2P2QPlm","aL0KAenC","yjDpdZFg","iwQhB8tD"]],
 
@@ -432,8 +438,10 @@
       ["EtOj5Z9I",["xSFDYosW","y0S3h61J","z5Fyfgvf","xVWYgimL","yEFoyWW0","u5Ni8YOT","sLMuid0T","0NQnL0Vz","cKUzgIwl","G75pcD6B","OWLzZKYk","B2tqsmnx","8NCFT2Gq","1rvrPlcO","yaDZIsdw","ZaH1gyos","NIOSLvC5","PnuDg5Dx","na0btGPf","vuVpMtY1","TxfwzXbP","pcgKagQc","iBFVkAQm","1q2NMsCc","YKSTlo1c","Y5HB2ltI"]],
 
       // Level 378
-      ["F22l3t1U",["1RJlb6wo","8SoASmeh","BM2VlEWc","UBnPnQvP","wnUKH7c6","FvXp7Bux","CHGga19B","72GDoxDe","cppiVr8B","rRoJV5bz","RRvFrvBT","6rDaSPtQ","7BZN8HhH","Bn39D9np","HekyyasT","iCpfEIwK","njb90HId","eowHesAV","sgU5IPzX","2TtAlGtr","gsCEMAQY","mlG5CqyH","raHzYxXT","WSsZNg45","b4QgZCWp","1qt19BKE","P6XdPY2y","HQszY25a","629PJiik","feeWvWWV"]],
+      ["F22l3t1U",["1RJlb6wo","8SoASmeh","BM2VlEWc","UBnPnQvP","wnUKH7c6","FvXp7Bux","CHGga19B","72GDoxDe","cppiVr8B","rRoJV5bz","RRvFrvBT","6rDaSPtQ","7BZN8HhH","Bn39D9np","HekyyasT","iCpfEIwK","njb90HId","eowHesAV","sgU5IPzX","2TtAlGtr","gsCEMAQY","mlG5CqyH","raHzYxXT","WSsZNg45","b4QgZCWp","1qt19BKE","P6XdPY2y","HQszY25a","629PJiik","feeWvWWV"]]
+    ];
 
+    const level4 = [
       // Level 401
       ["0iAhqOrc",["0cLHuT88","z8V4bicg","BgI5Go8t","VoKoMss6","KKVJKYcO","pcsURMmJ","G9KxhpFE","6ielWaHY","9S9x5C4J","B0SBrXVd","xuNqEHjc","HvRhK4an","LAruBLXZ","wkfbfLKs","uxZddglI","wYZmEUiG","MUUsuXQA","qQ7UPhN4","e640L4Nn","WnHD4T4o","6ILw2fXc","nP5erSXA","zUExCltV","vuvw5Aot","8X0xmulA","nRyStLIa","LUkfQkju","r1AbjdfZ","OYyBUcFo","f6Rbft6w","14c7Q6ST","HPkJyUej","NbxME0LL","4hF2JzGR","ZGjnJru9","p3k8cJO6","fN3XjNdp","uizwwe6I","GKkBsPqv","TnNHNR24","BG42ysTC","PqlALUrG","rr2ssV4O","p0xgB52q","R2AECODV","NwCVGOpX","QCGbTYXK","adDS2EH9","cwnVhlUT","3ks9sCb0","TMppiZXQ","jVz4fqwr","7TF8pPYG","g5FyHUt9","bNSOY8Lm","Jyyv59JA","nkGlVVbn"]],
 
@@ -453,6 +461,7 @@
       ["OdwWgIKw",["hBebA8pG","15EFUbHv","8sAbS0K2","eNXGUMcP","5EoMMgGu","G0tialpv","qsN9ooNv","UcbHJOCF","oawOYbgc","t3PVjeW3","Xy5oGj9x","0R9yly66","AtDjei7d","Ov06RIzS","KA2F4H0y","lRzOLB4m","MuFbmMBv","UcUBLDc6","LEraCpVF","PF0rS8Rf","f0NCAAPS","7yEys8ql","mkziArEi","mj2vTZAU","NN0gfAB7","27P5YFqg","dKBE5cfu","aSURfVaV","mBcXqhgs","DjFCefur","8TVk4H1n","4ODopCC3","u2Cg2P4y","Py5tr1hv","OizwhcuN","Spq2f74J","zvnPTIAP","vsC0PqAy","cCk3S0b1","hejNlXuW","RzFtbfY4","Z7tXGMCA","fELWtClB","pAZ6aay4","IphU80Dd","fjqjSAb6","f1STaKAd","dqasyPFP","Gg6JQyqf","cc4YfMbj","8LufifMF","jM6mAYGF","uoXHkhtC","YqIE3XEJ","NRe6weEV","4bORHyz3","8xcHMy3T","6G85fFXN"]],
 
       // Level 407
+      ["qAxsSizD", ["gIwB8noq", "39ko3H43", "VewDgD6n", "W07SAyHP", "GUh2wwEC", "AkIwbvwb", "XHZZDhSl", "ckgCux6o", "jEVieibe", "we5UHh26", "pGmfLYdn", "dOGaWT6V", "PY2u2lmK", "ePnsy3Kz", "glVtH6AI", "bpk9aaFn", "k9RJ2XB5", "MtBUi3t5", "Q2Nzz7TY", "ZRjHMooK", "jx9KMPBs", "RI4iP2Sy", "nJy3b996", "WKUbqs9L", "5yVP15UC", "Wsm2yRvc", "Fz2c40Bw", "7pu5NMhW", "5xVwZUKc", "sjPp26c4", "TcZgQRMw", "S2tw5jPU", "0syVJAJh", "cEUlvGc7", "95NfANnF", "B2kCMBbz", "i4lxT1US", "qCuQywM5", "DAPmU7Bc", "ToMhUlaP", "vr03i5Lv", "vzzF03em", "pvBzw2Zm", "XEI77i84", "bmlXHjnY", "CG50bpoj", "EpA5jdN3", "8Oeh6Zua", "Ugx0L4YI", "Q4FXUFEk", "1Mh4Dxml", "jmoV2t4u", "GkA95Pob", "FGTHscU4", "BhCw4xbR", "Fg2aZyGP", "6xMNJA2p", "eokwQkg7"]],
 
       // Level 408
 
@@ -466,8 +475,50 @@
 
       // Level 413
 
-      // Mate in Two (307-350)
+    ];
+
+    const mate_in_2 = [
+      // Mate in 2 (307-350)
       ["GNsgs8Ni", ["3pwaftMy", "nK0FeejE", "yPaMDJz7", "QJ4P1N79", "qP56vcBE", "QvJHDVWF", "4eLB37nG", "oBABRmAa", "NulK4hrZ", "B25El53W", "5Xw9yYup", "voF0NnnL", "zwwyN1He", "qF28hjJ9", "OKessGmw", "39sjjxJo", "gztXz73f", "3r8iEavK", "FuJg3wNB", "ZCao8vaa", "CQTRrzs8", "sPenCV5K", "MWuqRVOV", "9U3B8HtN", "iGcVGnXb", "W3nwPIpe", "Xa60XLfQ", "ePx52OJl", "sKSM4ZgK", "SUmG8V8M", "bZD8a9tq", "ksTFwd13", "6dGZEaRr", "n3uscrbM", "0bezaWQs", "HjGVJI5b", "3LVVIsL0", "xIVQsWNG", "x6kUfwdR", "4Q6MOcY9", "weMEfUvp", "MuEg8ImL", "O8yoMZ6J", "tLs3FYsy"]],
+
+      // Mate in 2 (351-400)
+      ["O9Zlz41b", ["eJvgMS30", "7YNCEkEo", "CAC8ctns", "iNLhqjR0", "4gzEsolI", "FGs3EAZm", "cieYoF3m", "pzEEHbtw", "3mbShIhj", "TeQWw0VE", "kG91Dkfa", "F6vskrBh", "6fEhU037", "K8M3UCdv", "s6bxw0Ee", "7U5qAXyS", "MNLhWc8W", "5Fig5eBp", "ezzXF4mG", "kOpDcwP8", "HGDLOCSl", "cbDD0u0s", "RD004pTi", "WsEUWhEP", "PZ3VyPZm", "p5tymDUM", "A9f8zeci", "PjgeocQ2", "BPxubxem", "mnoqint5", "UG2Ucj9t", "kdFLH7h3", "faLSD5UY", "ozBubCIE", "OsoQ108p", "4AT8qOYQ", "3FRPffwi", "IlXazzX4", "RVyxIhEn", "0OSwB7VN", "RV1XrO53", "wvPpV4D2", "yephpbqB", "afdPBdtR", "Kv6HjuJ8", "9beD7ZiB", "loz0Adqn", "LI0797t9", "sFImDVEX", "Zqmb3jM0"]],
+
+      // Mate in 2 (401-450)
+
+      // Mate in 2 (451-500)
+
+      // Mate in 2 (501-550)
+
+      // Mate in 2 (551-600)
+
+      // Mate in 2 (601-650)
+
+      // Mate in 2 (651-700)
+
+      // Mate in 2 (701-750)
+
+      // Mate in 2 (751-800)
+
+      // Mate in 2 (801-850)
+
+      // Mate in 2 (851-900)
+
+      // Mate in 2 (901-950)
+
+      // Mate in 2 (951-1000)
+
+      // Mate in 2 (1001-1050)
+
+      // Mate in 2 (1051-1100)
+
+      // Mate in 2 (1101-1150)
+
+      // Mate in 2 (1151-1200)
+
+      // Mate in 2 (1201-1250)
+
+      // Mate in 2 (1251-1300)
 
     ];
 
