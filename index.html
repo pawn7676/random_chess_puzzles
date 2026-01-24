@@ -15,7 +15,7 @@
       const randomLevel = levels[randomNumbers[0] % levels.length];
 
       // 3. Pick a random study from the randomLevel array:
-      const randomStudy = randomLevel[randomNumbers[1] % data.length];
+      const randomStudy = randomLevel[randomNumbers[1] % randomLevel.length];
 
       // 4. randomStudy[0] is study name, randomStudy[1] is array of chapters. Pick a random chapter:
       const randomChapter = randomStudy[1][randomNumbers[2] % randomStudy[1].length];
