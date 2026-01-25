@@ -91,31 +91,30 @@
 
     <script>
         function launch(category) {
-            // High-entropy random numbers for unbiased selection
             const entropy = new Uint32Array(3);
             window.crypto.getRandomValues(entropy);
 
+            // Explicitly link the strings to your variables
+            const dataMap = {
+                'level2': level2,
+                'level3': level3,
+                'level4': level4,
+                'mate_in_2': mate_in_2
+            };
+
             let pool;
-            
-            // Selection logic including the "Random" button
             if (category === 'random') {
                 const levels = [level2, level3, level4, mate_in_2];
                 pool = levels[entropy[0] % levels.length];
             } else {
-                // Access the specific variable (level2, level3, etc.)
-                pool = window[category];
+                pool = dataMap[category];
             }
 
-            // Pick a random study from the array
-            const study = pool[entropy[1] % pool.length];
-            // Pick a random chapter from that study
-            const chapter = study[1][entropy[2] % study[1].length];
-
-            // Direct URL construction with a timestamp cache-buster
-            const target = `https://lichess.org/study/${study[0]}/${chapter}?t=${Date.now()}`;
-            
-            // Immediate navigation
-            window.location.href = target;
+            if (pool && pool.length > 0) {
+                const study = pool[entropy[1] % pool.length];
+                const chapter = study[1][entropy[2] % study[1].length];
+                window.location.href = `https://lichess.org/study/${study[0]}/${chapter}?t=${Date.now()}`;
+            }
         }
 
         // --- DATA ARRAYS ---        
