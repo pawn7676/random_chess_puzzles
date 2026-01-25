@@ -13,27 +13,38 @@
         body {
             background-color: #161512;
             color: #bababa;
-            font-family: -apple-system, system-ui, sans-serif;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            /* Aligns to top instead of center to fix the "low" appearance */
+            justify-content: flex-start; 
             height: 100vh;
             margin: 0;
+            /* Moves the box down slightly from the very top for better balance */
+            padding-top: 8vh; 
+        }
+
+        h1 { 
+            color: #fff; 
+            margin-top: 0; 
+            margin-bottom: 1.5rem; 
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .menu-card {
             background-color: #262421;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             border: 1px solid #403d39;
             text-align: center;
             max-width: 450px;
             width: 90%;
         }
-
-        h1 { color: #fff; margin-top: 0; margin-bottom: 1.5rem; font-size: 1.5rem; letter-spacing: 1px; }
 
         .button-grid {
             display: grid;
@@ -46,49 +57,44 @@
             font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            border-radius: 6px;
-            border: 1px solid #403d39;
-            background-color: #363431;
-            color: #bababa;
-            transition: transform 0.1s, background-color 0.2s;
-        }
-
-        button:active { transform: scale(0.98); }
-
-        button:hover {
-            background-color: #45423e;
-            color: #fff;
-            border-color: #629924;
-        }
-
-        .btn-random {
-            grid-column: span 2;
-            background-color: #629924;
-            color: white;
+            border-radius: 4px;
             border: none;
-            margin-top: 10px;
-            font-size: 1.1rem;
+            color: white;
+            transition: filter 0.2s, transform 0.1s;
         }
 
-        .btn-random:hover { background-color: #75ad32; }
+        /* Color Scheme Assignments */
+        .btn-easy { background-color: #629924; }             /* Green */
+        .btn-medium { background-color: #d5a021; }           /* Yellow */
+        .btn-hard { background-color: #b33939; }             /* Red */
+        .btn-mate { background-color: #ffffff; color: #000; } /* White */
+        
+        .btn-random { 
+            background-color: #555555;                       /* Grey */
+            grid-column: span 2; 
+            margin-top: 10px;
+        }
 
-        .footer { margin-top: 20px; font-size: 0.8rem; color: #666; }
+        /* Hover and Click Effects */
+        button:hover { filter: brightness(1.1); }
+        button:active { 
+            filter: brightness(0.9);
+            transform: scale(0.98);
+        }
     </style>
 </head>
 <body>
-
     <div class="menu-card">
-        <h1>CHESS TRAINER</h1>
+        <h1>CHESS PUZZLES</h1>
         <div class="button-grid">
-            <button onclick="launch('level2')">EASY</button>
-            <button onclick="launch('level3')">MEDIUM</button>
-            <button onclick="launch('level4')">HARD</button>
-            <button onclick="launch('mate_in_2')">MATE IN 2</button>
+            <button class="btn-easy" onclick="launch('level2')">EASY</button>
+            <button class="btn-medium" onclick="launch('level3')">MEDIUM</button>
+            <button class="btn-hard" onclick="launch('level4')">HARD</button>
+            <button class="btn-mate" onclick="launch('mate_in_2')">MATE IN 2</button>
             <button class="btn-random" onclick="launch('random')">🔀 RANDOM</button>
         </div>
-        <div class="footer">Click a level to start. Use 'Back' to return.</div>
     </div>
-
+    
     <script>
         function launch(category) {
             const entropy = new Uint32Array(3);
