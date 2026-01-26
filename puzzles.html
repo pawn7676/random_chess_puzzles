@@ -46,7 +46,6 @@
             width: 90%;
         }
 
-
         .button-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -58,55 +57,32 @@
             font-size: 1.1rem;
             font-weight: 800;
             cursor: pointer;
-            border-radius: 6px;
+            border-radius: 4px; /* Back to the cleaner Lichess rounding */
             border: none;
             color: white;
-            transition: all 0.2s ease;
-            
-            /* This creates the "Raised" 3D effect */
-            border-bottom: 4px solid rgba(0, 0, 0, 0.3);
-            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+            /* Removed all transitions and shadows for max performance */
         }
 
-        /* Specific Glows for each color */
-        .btn-easy { 
-            background-color: #629924; 
-            box-shadow: 0 0 15px rgba(98, 153, 36, 0.4); 
-        }
-        .btn-medium { 
-            background-color: #d5a021; 
-            box-shadow: 0 0 15px rgba(213, 160, 33, 0.4); 
-        }
-        .btn-hard { 
-            background-color: #b33939; 
-            box-shadow: 0 0 15px rgba(179, 57, 57, 0.4); 
-        }
+        /* Back to solid, flat colors */
+        .btn-easy { background-color: #629924; }
+        .btn-medium { background-color: #d5a021; }
+        .btn-hard { background-color: #b33939; }
         .btn-mate { 
             background-color: #b0b0b0; 
-            color: #161512;
-            text-shadow: none; /* This removes the blurriness */
-            box-shadow: 0 0 12px rgba(255, 255, 255, 0.15); 
-            border-bottom: 4px solid rgba(0, 0, 0, 0.2); /* Darker edge for 3D look */
+            color: #161512; 
         }
         .btn-random { 
             background-color: #444444; 
             grid-column: span 2; 
             margin-top: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Hover: Increase the glow */
-        button:hover {
-            filter: brightness(1.1);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px); /* Lifts up slightly on hover */
+        /* Simple brightness change on hover/tap, no movement */
+        button:hover { 
+            filter: brightness(1.1); 
         }
-
-        /* Active: The "Press" effect */
-        button:active {
-            filter: brightness(0.9);
-            transform: translateY(2px); /* Moves down to simulate a click */
-            border-bottom: 0px; /* Flattens the 3D edge */
+        button:active { 
+            filter: brightness(0.8); 
         }
 
     </style>
