@@ -69,21 +69,12 @@
             margin-top: 10px;
         }
 
-        /* This targets touch specifically */
-        @media (hover: none) {
-            button:active {
-                background-color: rgba(0, 0, 0, 0.4) !important;
-                background-blend-mode: multiply;
-                opacity: 0.6;
-            }
+        button:active {
+            /* Creates a subtle "light up" effect when pressed */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+            outline: none;
         }
 
-        /* This keeps the mouse behavior consistent */
-        button:active {
-            opacity: 0.6;
-            filter: brightness(0.8);
-        }
-        
     </style>
 </head>
 <body>
