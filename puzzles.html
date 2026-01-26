@@ -24,7 +24,8 @@
         }
     
         h1 { 
-            color: #fff; 
+            color: #fff;
+            margin-top: 0;
             margin-bottom: 1.5rem; 
             font-size: 1.8rem;
             font-weight: 600;
@@ -62,7 +63,7 @@
         .btn-easy { background-color: #629924; }
         .btn-medium { background-color: #d5a021; }
         .btn-hard { background-color: #b33939; }
-        .btn-mate { background-color: #b0b0b0; color: #161512; }
+        .btn-mate { background-color: #d9d9d9; color: #161512; }
         .btn-random { 
             background-color: #444444; 
             grid-column: span 2; 
@@ -70,12 +71,15 @@
         }
 
         button:active {
-            opacity: 0.7;
+            /* This applies a 20% dark tint OVER your button color */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) !important;
+            /* Ensures the response is instant on touch */
+            opacity: 1; 
         }
 
     </style>
 </head>
-<body>
+<body ontouchstart="">
     <div class="menu-card">
         <h1>CHESS PUZZLES</h1>
         <div class="button-grid">
@@ -89,6 +93,10 @@
     
     <script>
         function launch(category) {
+            // Immediately remove focus/active state so it's clean for the 'back' button
+            document.activeElement.blur();
+
+            // Create 3 random numbers using hardware-level entropy
             const entropy = new Uint32Array(3);
             window.crypto.getRandomValues(entropy);
 
