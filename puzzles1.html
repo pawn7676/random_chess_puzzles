@@ -70,10 +70,10 @@
         }
 
         button:active {
-            /* This creates a subtle "darken" effect on top of any color */
-            background-color: rgba(0, 0, 0, 0.2) !important;
-            /* This ensures it responds instantly on iPad */
-            opacity: 0.8;
+            /* This applies a 20% dark tint OVER your button color */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) !important;
+            /* Ensures the response is instant on touch */
+            opacity: 1; 
         }
 
     </style>
