@@ -69,9 +69,21 @@
             margin-top: 10px;
         }
 
-        button:active { 
-            opacity: 0.7; 
+        /* This targets touch specifically */
+        @media (hover: none) {
+            button:active {
+                background-color: rgba(0, 0, 0, 0.4) !important;
+                background-blend-mode: multiply;
+                opacity: 0.6;
+            }
         }
+
+        /* This keeps the mouse behavior consistent */
+        button:active {
+            opacity: 0.6;
+            filter: brightness(0.8);
+        }
+        
     </style>
 </head>
 <body>
