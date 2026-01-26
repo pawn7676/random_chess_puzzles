@@ -33,6 +33,8 @@
             font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+            /* Soft white outer glow */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
         }
 
         .menu-card {
@@ -84,7 +86,9 @@
         .btn-mate { 
             background-color: #b0b0b0; 
             color: #161512;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); 
+            text-shadow: none; /* This removes the blurriness */
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.15); 
+            border-bottom: 4px solid rgba(0, 0, 0, 0.2); /* Darker edge for 3D look */
         }
         .btn-random { 
             background-color: #444444; 
@@ -106,7 +110,7 @@
             transform: translateY(2px); /* Moves down to simulate a click */
             border-bottom: 0px; /* Flattens the 3D edge */
         }
-        
+
     </style>
 </head>
 <body>
