@@ -13,78 +13,65 @@
         body {
             background-color: #000000;
             color: #bababa;
-            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, system-ui, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Aligns to top instead of center to fix the "low" appearance */
             justify-content: flex-start; 
             height: 100vh;
             margin: 0;
-            /* Moves the box down slightly from the very top for better balance */
             padding-top: 8vh; 
         }
-
+    
         h1 { 
             color: #fff; 
-            margin-top: 0; 
             margin-bottom: 1.5rem; 
             font-size: 1.8rem;
             font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
-
+    
         .menu-card {
-            background-color: #1c1a17; /* Darker charcoal */
+            background-color: #1c1a17;
             padding: 2rem;
-            border-radius: 12px;       /* Slightly smoother corners */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8); /* Deeper shadow for depth */
-            border: 1px solid #312e2b; /* Subtle border to define the edge */
+            border-radius: 8px;
+            border: 1px solid #312e2b;
             text-align: center;
             max-width: 450px;
             width: 90%;
         }
-
+    
         .button-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
-
+    
         button {
             padding: 18px;
             font-size: 1.1rem;
             font-weight: 800;
             cursor: pointer;
-            border-radius: 4px; /* Back to the cleaner Lichess rounding */
+            border-radius: 4px;
             border: none;
             color: white;
-            /* Removed all transitions and shadows for max performance */
+            -webkit-tap-highlight-color: transparent; 
         }
-
-        /* Back to solid, flat colors */
+    
         .btn-easy { background-color: #629924; }
         .btn-medium { background-color: #d5a021; }
         .btn-hard { background-color: #b33939; }
-        .btn-mate { 
-            background-color: #b0b0b0; 
-            color: #161512; 
-        }
+        .btn-mate { background-color: #b0b0b0; color: #161512; }
         .btn-random { 
             background-color: #444444; 
             grid-column: span 2; 
             margin-top: 10px;
         }
 
-        /* Simple brightness change on hover/tap, no movement */
-        button:hover { 
-            filter: brightness(1.1); 
-        }
         button:active { 
-            filter: brightness(0.8); 
+            opacity: 0.7; 
         }
-
     </style>
 </head>
 <body>
