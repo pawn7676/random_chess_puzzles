@@ -20,7 +20,9 @@
             justify-content: center; 
             height: 100dvh;
             margin: 0;
-            padding: 0; 
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
     
         h1 { 
@@ -28,25 +30,26 @@
             margin-top: 0;
             margin-bottom: 1.5rem; 
             font-size: 1.8rem;
-            font-weight: 600;
+            font-weight: 800;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
         .menu-card {
-            background-color: #1c1a17;
+            background-color: #242424;
             padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid #312e2b;
+            border-radius: 12px;
+            border: 1px solid #333333;
             text-align: center;
             max-width: 450px;
             width: 90%;
             box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adds 'lift' from body */
         }
 
         .button-grid {
             display: flex;
-            flex-direction: column; /* Switches from grid to a vertical stack */
+            flex-direction: column; /* Vertical stack */
             gap: 15px;              /* Consistent spacing between buttons */
             width: 100%;
             max-width: 400px;       /* Keeps it from getting too wide on iPad */
@@ -63,23 +66,24 @@
             /* Text Styling */
             font-size: 1.3rem;
             font-weight: 800;
-            color: white;
+            color: #0a0a0a;
             
             /* Look & Feel */
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 6px;
             border: none;
-            -webkit-tap-highlight-color: transparent; 
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.1s ease; /* Makes the press feel 'springy' */ 
         }
 
-        .btn-level2 { background-color: #7DB343; color: #161512; }
-        .btn-level3 { background-color: #FECC32; color: #161512; }
+        .btn-level2 { background-color: #7DB343; }
+        .btn-level3 { background-color: #FECC32; }
         .btn-level4 { background-color: #F54336; }
         .btn-level5 { background-color: #AC47BB; }
         .btn-level6 { background-color: #1B76D2; }
-        .btn-mate_in_2 { background-color: #E0E0DF; color: #161512; }
+        .btn-mate_in_2 { background-color: #E0E0DF; }
         .btn-endgame { background-color: #B76D54; }
-        .btn-random { background-color: #444444; }
+        .btn-random { background-color: #444444; color: white; }
 
         button:active {
             background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) !important; /* Applies a 20% dark tint OVER your button color */
@@ -88,12 +92,12 @@
         }
 
         /* If the screen is short (like iPhone), trigger Compact Mode */
-        @media (max-height: 750px) {
+        @media (max-height: 750px) and (max-width: 500px) {
             .menu-card {
                 padding: 14px; /* Shaves off space inside the card */
             }
             .button-grid {
-                gap: 8px;      /* Pulls buttons closer together */
+                gap: 10px; /* Pulls buttons closer together */
             }
             button {
                 padding: 12px; /* Makes the buttons thinner */
@@ -104,6 +108,7 @@
         }
 
     </style>
+
 </head>
 <body ontouchstart="">
     <div class="menu-card">
