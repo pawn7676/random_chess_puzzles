@@ -42,39 +42,48 @@
             max-width: 450px;
             width: 90%;
         }
-    
+
         .button-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            display: flex;
+            flex-direction: column; /* Switches from grid to a vertical stack */
+            gap: 15px;              /* Consistent spacing between buttons */
+            width: 100%;
+            max-width: 400px;       /* Keeps it from getting too wide on iPad */
+            margin: 0 auto;
         }
-    
+
         button {
-            padding: 18px;
+            /* Layout & Size */
+            width: 100%;            
+            padding: 20px;          
+            box-sizing: border-box; 
+            
+            /* Text Styling */
             font-size: 1.1rem;
             font-weight: 800;
+            color: white;
+            
+            /* Look & Feel */
             cursor: pointer;
             border-radius: 4px;
             border: none;
-            color: white;
             -webkit-tap-highlight-color: transparent; 
         }
-    
-        .btn-easy { background-color: #629924; }
-        .btn-medium { background-color: #d5a021; }
-        .btn-hard { background-color: #b33939; }
-        .btn-mate { background-color: #d9d9d9; color: #161512; }
+
+        .btn-level2 { background-color: #629924; }
+        .btn-level3 { background-color: #d5a021; }
+        .btn-level4 { background-color: #b33939; }
+        .btn-mate_in_2 { background-color: #d9d9d9; color: #161512; }
+        .btn-endgame { background-color: #d4a373; color: #161512; }
         .btn-random { 
             background-color: #444444; 
-            grid-column: span 2; 
-            margin-top: 10px;
+            margin-top: 10px; /* Makes a small gap above the 'Random' option */
         }
 
         button:active {
-            /* Applies a 20% dark tint OVER your button color */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) !important;
-            /* Ensures the response is instant on touch */
-            opacity: 1; 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) !important; /* Applies a 20% dark tint OVER your button color */
+            transform: scale(0.98); /* Shrinks the button slightly when pressed */
+            opacity: 1; /* Ensures the response is instant on touch */
         }
 
     </style>
@@ -83,10 +92,11 @@
     <div class="menu-card">
         <h1>CHESS PUZZLES</h1>
         <div class="button-grid">
-            <button class="btn-easy" onclick="launch('level2')">EASY</button>
-            <button class="btn-medium" onclick="launch('level3')">MEDIUM</button>
-            <button class="btn-hard" onclick="launch('level4')">HARD</button>
-            <button class="btn-mate" onclick="launch('mate_in_2')">MATE IN 2</button>
+            <button class="btn-level2" onclick="launch('level2')">LEVEL 2</button>
+            <button class="btn-level3" onclick="launch('level3')">LEVEL 3</button>
+            <button class="btn-level4" onclick="launch('level4')">LEVEL 4</button>
+            <button class="btn-mate_in_2" onclick="launch('mate_in_2')">MATE IN 2</button>
+            <button class="btn-endgame" onclick="launch('endgame')">ENDGAME</button>
             <button class="btn-random" onclick="launch('random')">🔀 RANDOM</button>
         </div>
     </div>
@@ -99,7 +109,8 @@
                 'level2': level2,
                 'level3': level3,
                 'level4': level4,
-                'mate_in_2': mate_in_2
+                'mate_in_2': mate_in_2,
+                'endgame': endgame
             };
 
             // Remove active state so it's clean for the 'back' button
@@ -626,6 +637,13 @@
             // Mate in 2 (1251-1300)
 
         ];
+
+        const endgame = [
+            // Levels 11-20
+            ["Kn6noKRP", ["jJExWmAc", "MzBTQBm0", "XFjvVArj", "O2NbxGpP", "3ZNndA1b", "22wbHyKL", "LXLRxHN1", "8vkB44Rp", "bHl2Ox4k", "eLxljwkA", "oE7FZ3Dx", "t3damQ2p", "SwEg8tze", "UHyMEa94", "rvlzCB1b", "MCZSPnQi", "PsDct2xF", "tYxQT2jg", "0p4ZovbL", "8g8ZvY0M", "2KTIHrYY", "dlpzaDVw", "D5exFiEo", "2OCmkiOg", "75Ysjt8d", "iFOQM8vD", "xFNIyCtz", "FxWmLFCJ", "0ZXOs4xw", "gub5H2wf", "Cg2Eoxes", "TQTjiTgO", "ddPLMnv7", "qmtFLHax", "xtQX3CgE", "LTl3vynD", "FA1jrEIq", "cmqFrvhf", "RIRTFlOe", "9glCyLpH", "7V70HRPE", "8RTAyvWS", "tifvPmIY", "fYzfxUTy", "G8OJ067C", "SItYgMz4", "RJc6tq3u", "zGWuUBCd", "EwM8adUO", "hK2ppZfK", "HRbctXHI", "XldIXJvU", "Z3psRKkO", "Sf8bw4hH", "MIDDJebc", "XD9iiEP8", "H0oh3G5k", "7c6wPlDu"]],
+
+        ];
+
     </script>
 </body>
 </html>
