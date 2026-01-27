@@ -57,23 +57,10 @@
             
             /* Text Styling */
             font-size: 1.3rem;
-            font-weight: 800;
-            /* 1. The 'Carved' Color */
-            /* Using 70% black makes the text look like the button material in shadow */
-            color: rgba(0, 0, 0, 0.7); 
             font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            /* 2. The 'Stamped' Indication */
-            /* -1px black shadow on top = the 'cut' into the material */
-            /* +1px white shadow on bottom = the 'rim' catching light */
-            text-shadow: 
-                0px -1px 0px rgba(0, 0, 0, 0.3),
-                0px 1px 0px rgba(255, 255, 255, 0.2);
-            
-            /* 3. Sharpness Fix for iPad */
+            color: #000000;
             -webkit-font-smoothing: antialiased;
-
+            
             /* Look & Feel */
             cursor: pointer;
             border-radius: 6px;
@@ -81,18 +68,6 @@
             -webkit-tap-highlight-color: transparent;
             transition: transform 0.1s ease; /* Makes the press feel 'springy' */ 
         }
-
-            
-
-            
-        }
-
-        /* Override for the dark random button to keep it readable */
-        .btn-random {
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
-        }
-
 
         .btn-level2 { background-color: #7DB343; }
         .btn-level3 { background-color: #FECC32; }
