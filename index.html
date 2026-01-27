@@ -36,7 +36,6 @@
             max-width: 450px;
             width: 90%;
             box-sizing: border-box;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adds 'lift' from body */
         }
 
         .button-grid {
@@ -69,11 +68,11 @@
             transition: transform 0.1s ease; /* Makes the press feel 'springy' */ 
         }
 
-        .btn-level2 { background-color: #7DB343; }
-        .btn-level3 { background-color: #FECC32; }
-        .btn-level4 { background-color: #F54336; }
-        .btn-level5 { background-color: #AC47BB; }
-        .btn-level6 { background-color: #1B76D2; }
+        .btn-level200 { background-color: #7DB343; }
+        .btn-level300 { background-color: #FECC32; }
+        .btn-level400 { background-color: #F54336; }
+        .btn-level500 { background-color: #AC47BB; }
+        .btn-level600 { background-color: #1B76D2; }
         .btn-mate_in_2 { background-color: #E0E0DF; }
         .btn-endgame { background-color: #B76D54; }
         .btn-random { background-color: #444444; color: #E0E0DF; }
@@ -104,11 +103,11 @@
     <div class="menu-card">
         <h1>CHESS PUZZLES</h1>
         <div class="button-grid">
-            <button class="btn-level2" onclick="launch('level2')">LEVEL 2</button>
-            <button class="btn-level3" onclick="launch('level3')">LEVEL 3</button>
-            <button class="btn-level4" onclick="launch('level4')">LEVEL 4</button>
-            <button class="btn-level5" onclick="alert('Level 5 coming in 2027.')">LEVEL 5</button>
-            <button class="btn-level6" onclick="alert('Level 6 coming in 2028.')">LEVEL 6</button>
+            <button class="btn-level200" onclick="launch('level200')">LEVEL 200</button>
+            <button class="btn-level300" onclick="launch('level300')">LEVEL 300</button>
+            <button class="btn-level400" onclick="launch('level400')">LEVEL 400</button>
+            <button class="btn-level500" onclick="alert('Level 500 coming in 2027.')">LEVEL 500</button>
+            <button class="btn-level600" onclick="alert('Level 600 coming in 2028.')">LEVEL 600</button>
             <button class="btn-mate_in_2" onclick="launch('mate_in_2')">MATE IN 2</button>
             <button class="btn-endgame" onclick="launch('endgame')">ENDGAME</button>
             <button class="btn-random" onclick="launch('random')">🔀 RANDOM</button>
@@ -120,9 +119,9 @@
 
             // Books are organized in this library
             const library = {
-                'level2': level2,
-                'level3': level3,
-                'level4': level4,
+                'level200': level200,
+                'level300': level300,
+                'level400': level400,
                 'mate_in_2': mate_in_2,
                 'endgame': endgame
             };
@@ -154,7 +153,7 @@
             window.location.href = "https://lichess.org/study/" + randomStudy[0] + '/' + randomChapter + "?t=" + Date.now();
         }
 
-        const level2 = [
+        const level200 = [
             // Level 201
             ["A0Bl4tdk",["qXrAMrmB","n01quAY4","Lc5xuG4K","9TpiMV9w","8OAm4kHF","0ELB17Ot","J6j4rpzY","BEW4aDF1","PMzIoNVV","xiXdXvRY","4tXRkG1m","WNvZAmRH","9qFpe4jX","VHUuPdOO","KEjsVDmz","B6C8nNfl","pLLwWq7R","N8VMAWFa","QcWVteBn","97Zq5gvZ","QPjkbkjz","MWky8j1x","eazCw6s5","EH6a1HWG","y48hYMvb","nDwsqWud","MZ3OdJsV","3g2IBxKe","q6r8Jg5n","HOccRqbw","6uY2mEbL","thF1USTQ","l5PmwCMg","NbCg68UJ","gKMtKMSB","27pxQAB4","MF6QLpKo","Wulwla2Y","Tx3L2RJm","PBcsWq8B","XJiT5ESt","GjoPow4F","6XcjmiJf","QXHpveiZ","QDX4Mh5v","37OfBjlU","4PCGyNA1","PSJpi31k","YEhicj1j","GVfOdm7b","0qRAawqE","NYymMhLO","bs6qmoGi","qDWhLs10","eQLlhvQG","H3JN8K5p","vUrDHBcI","Rv1qGPpt"]],
 
@@ -336,7 +335,7 @@
             ["roXadFOi",["rMJpeBTx","pccIIy3J","F6NBnznb","d9ueW8rz","0ExV928H","70Gbhgcp","zhfOEpBO","aVFBgWsC","3xwAC7vi","ZuNcpXS1","y5OMVemv","RgIMmksr","tv9Tvv9w","zALDzYU6","cMYw1wjZ","TWadzEGJ","glIVVaVE","W6IpHWKa","dBuATdU2","36Rlm2nP","fpkqCWES","cy1wT9jh","HgJXgc5d","QEvwjedB","9GAXU9MN","UgM3QK9M","d9MxmLK8","2uION020","SM9uZUKI","toIagYZU","jWZ4FFFH","VyycqROI","OPbJJ96C","zBOJRhW6","MFDXEGc0","PAzzmu8s","D2dxIoIT","uASSlRJ7","1oKW9tKA","iNJrwzEB","f3fARoHi","jqiKosii","dggebIPi","aN2ziReF","CVi9AqVY","xUJh78bt","nDK1TxHE","LmsiRzV0","BsBiwdmB","N8Yx0q3M","tfybo4BT","kPYmrk4p","C3R5WjgW","Pwc6bAnG","epvHkig5","zK48o8p6"]]
         ];
 
-        const level3 = [
+        const level300 = [
             // Level 301
             ["jYm3yFVw",["bDH6OSeK","xNejgzUe","Fm93uDNy","EKBiCaMX","B8h4RdYT","R13eRikH","IDJh7mni","I08ZiVsc","WbpJpGfn","CQpokSgC","55jZ0H9C","dSH3iPu6","r10bnpSD","8fm2fQ1t","w8TDNOkY","dt2UamvJ","job1ph10","bXI3W4Ee","RkXeKamU","azBjJlCE","d8VCLSZV","QaAuL8zj","s3MmzRU6","63u6wcAi","2MY6NIPV","6nwsivAM","MV9KUXKY","7a7waZlV","XGVgAeIj","NV1lnNp2","UZ0yjQqW","cPTjk7vz","oJUDZVqo","3VzO8ZKg","Z5D0VsPg","GRdySBoP","Lv3pHAHa","31l4kIM5","0Fx9pINc","kfQdoqsz","aZJkrVxF","53SuVho1","tJgVB1bF","OWdjiHxJ","5bHrxAQm","AKfRSkqn","03Ca8Y68","7fxLDl88","lJ6bmHXF","lMRi3hbh","Qwfu3Gcv","dTNy1itH","204lZmE9","9sU9Emvg","F2P2QPlm","aL0KAenC","yjDpdZFg","iwQhB8tD"]],
 
@@ -571,7 +570,7 @@
             ["F22l3t1U",["1RJlb6wo","8SoASmeh","BM2VlEWc","UBnPnQvP","wnUKH7c6","FvXp7Bux","CHGga19B","72GDoxDe","cppiVr8B","rRoJV5bz","RRvFrvBT","6rDaSPtQ","7BZN8HhH","Bn39D9np","HekyyasT","iCpfEIwK","njb90HId","eowHesAV","sgU5IPzX","2TtAlGtr","gsCEMAQY","mlG5CqyH","raHzYxXT","WSsZNg45","b4QgZCWp","1qt19BKE","P6XdPY2y","HQszY25a","629PJiik","feeWvWWV"]]
         ];
 
-        const level4 = [
+        const level400 = [
             // Level 401
             ["0iAhqOrc",["0cLHuT88","z8V4bicg","BgI5Go8t","VoKoMss6","KKVJKYcO","pcsURMmJ","G9KxhpFE","6ielWaHY","9S9x5C4J","B0SBrXVd","xuNqEHjc","HvRhK4an","LAruBLXZ","wkfbfLKs","uxZddglI","wYZmEUiG","MUUsuXQA","qQ7UPhN4","e640L4Nn","WnHD4T4o","6ILw2fXc","nP5erSXA","zUExCltV","vuvw5Aot","8X0xmulA","nRyStLIa","LUkfQkju","r1AbjdfZ","OYyBUcFo","f6Rbft6w","14c7Q6ST","HPkJyUej","NbxME0LL","4hF2JzGR","ZGjnJru9","p3k8cJO6","fN3XjNdp","uizwwe6I","GKkBsPqv","TnNHNR24","BG42ysTC","PqlALUrG","rr2ssV4O","p0xgB52q","R2AECODV","NwCVGOpX","QCGbTYXK","adDS2EH9","cwnVhlUT","3ks9sCb0","TMppiZXQ","jVz4fqwr","7TF8pPYG","g5FyHUt9","bNSOY8Lm","Jyyv59JA","nkGlVVbn"]],
 
