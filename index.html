@@ -24,12 +24,18 @@
         }
     
         h1 { 
-            display: none;
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1.5rem; 
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .menu-card {
             background-color: #1c1a17;
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 8px;
             border: 1px solid #312e2b;
             text-align: center;
@@ -41,7 +47,7 @@
         .button-grid {
             display: flex;
             flex-direction: column; /* Switches from grid to a vertical stack */
-            gap: 8px;              /* Consistent spacing between buttons */
+            gap: 15px;              /* Consistent spacing between buttons */
             width: 100%;
             max-width: 400px;       /* Keeps it from getting too wide on iPad */
             margin: 0 auto;
@@ -51,7 +57,7 @@
         button {
             /* Layout & Size */
             width: 100%;            
-            padding: 12px;          
+            padding: 16px;          
             box-sizing: border-box; 
             
             /* Text Styling */
@@ -66,13 +72,13 @@
             -webkit-tap-highlight-color: transparent; 
         }
 
-        .btn-level2 { background-color: #7DB343; }
+        .btn-level2 { background-color: #7DB343; color: #161512; }
         .btn-level3 { background-color: #FECC32; color: #161512; }
         .btn-level4 { background-color: #F54336; }
         .btn-level5 { background-color: #AC47BB; }
         .btn-level6 { background-color: #1B76D2; }
         .btn-mate_in_2 { background-color: #E0E0DF; color: #161512; }
-        .btn-endgame { background-color: #B76D54; color: #161512; }
+        .btn-endgame { background-color: #B76D54; }
         .btn-random { background-color: #444444; }
 
         button:active {
@@ -81,12 +87,19 @@
             opacity: 1; /* Ensures the response is instant on touch */
         }
 
-        @media (max-height: 700px) {
+        /* If the screen is short (like iPhone), trigger Compact Mode */
+        @media (max-height: 750px) {
+            .menu-card {
+                padding: 14px; /* Shaves off space inside the card */
+            }
+            .button-grid {
+                gap: 8px;      /* Pulls buttons closer together */
+            }
             button {
-                padding: 14px;
+                padding: 12px; /* Makes the buttons thinner */
             }
             h1 {
-                margin-bottom: 0.8rem;
+                display: none; /* Hide the title on short screens */
             }
         }
 
