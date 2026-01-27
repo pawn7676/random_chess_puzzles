@@ -17,10 +17,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; 
+            justify-content: center; 
             height: 100vh;
             margin: 0;
-            padding-top: 8vh; 
+            padding: 20px 0; 
         }
     
         h1 { 
@@ -59,7 +59,7 @@
             box-sizing: border-box; 
             
             /* Text Styling */
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: white;
             
@@ -75,15 +75,21 @@
         .btn-level4 { background-color: #b33939; }
         .btn-mate_in_2 { background-color: #d9d9d9; color: #161512; }
         .btn-endgame { background-color: #d4a373; color: #161512; }
-        .btn-random { 
-            background-color: #444444; 
-            margin-top: 10px; /* Makes a small gap above the 'Random' option */
-        }
+        .btn-random { background-color: #444444; }
 
         button:active {
             background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) !important; /* Applies a 20% dark tint OVER your button color */
             transform: scale(0.98); /* Shrinks the button slightly when pressed */
             opacity: 1; /* Ensures the response is instant on touch */
+        }
+
+        @media (max-height: 700px) {
+            button {
+                padding: 14px;
+            }
+            h1 {
+                margin-bottom: 0.8rem;
+            }
         }
 
     </style>
